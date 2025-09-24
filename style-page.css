@@ -13,8 +13,10 @@ body {
 	background-color: #FFFFFF;
 }
 
-pre, code {
+pre {
+	overflow-x: auto;
 	margin: 0;
+	border: 1px solid #CCCCCC;
 }
 
 a {
@@ -67,7 +69,6 @@ a {
 }
 
 #id-view-content {
-	display: flex;
 	flex: 1;
 	margin: 0;
 	padding: 1.5em;
@@ -76,9 +77,9 @@ a {
 #id-sidebar {
 	padding: 1em 0;
 	border-right: 1px solid #CCCCCC;
-	width: 200px;
 	color: #555555;
 	background-color: #EEEEEE;
+	width: 180px;
 }
 
 #id-footer {
@@ -87,7 +88,6 @@ a {
 	background-color: #1177AA;
 	border-top: 1px solid #CCCCCC;
 }
-
 
 #id-header-subtitle {
 	font-style: italic;
@@ -138,7 +138,7 @@ a {
 #id-sidebar li a {
 	display: block;
 	margin: 0;
-	padding: 0.8ex 2em 0.8ex 1em;
+	padding: 0.4em;
 }
 
 #id-footer a {
