@@ -71,7 +71,19 @@ a {
 #id-view-content {
 	flex: 1;
 	margin: 0;
-	padding: 1.5em;
+}
+
+#id-tabs {
+	overflow: hidden;
+	clear: both;
+	padding: 0.35em;
+	border-bottom: 1px solid #CCCCCC;
+	color: #555555;
+	background-color: #EEEEEE;
+}
+
+#id-view-markdown {
+	padding: 1.0em;
 }
 
 #id-sidebar {
@@ -94,7 +106,7 @@ a {
 	font-size: 0.75em;
 }
 
-#id-header a, #id-menu a, #id-sidebar a, #id-footer a {
+#id-header a, #id-menu a, #id-sidebar a, #id-footer a, #id-tabs a {
 	text-decoration: none;
 }
 
@@ -111,7 +123,7 @@ a {
 	color: #FFFFFF;
 }
 
-#id-sidebar a {
+#id-sidebar a, #id-tabs a {
 	padding: 0.25em 0.5em;
 	color: #555555;
 }
