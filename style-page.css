@@ -43,6 +43,14 @@ a {
 	padding-left: 0.50em !important;
 }
 
+.class-link-active {
+	background-color: #DDDDDD !important;
+}
+
+.class-link-menu-active {
+	background-color: #006699 !important;
+}
+
 #id-header {
 	clear: both;
 	padding: 0.35em 0.35em 0.35em 0.7em;
@@ -106,7 +114,7 @@ a {
 	font-size: 0.75em;
 }
 
-#id-header a, #id-menu a, #id-sidebar a, #id-footer a, #id-tabs a {
+#id-header a, #id-menu a, #id-sidebar a,  #id-tabs a, #id-footer a{
 	text-decoration: none;
 }
 
@@ -151,6 +159,10 @@ a {
 	display: block;
 	margin: 0;
 	padding: 0.4em;
+}
+
+#id-tabs a:hover, #id-tabs a:focus, #id-tabs a:active {
+	background-color: #DDDDDD;
 }
 
 #id-footer a {

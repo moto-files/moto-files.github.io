@@ -7,6 +7,30 @@ import subprocess
 
 from shutil import which
 
+## Links Activator #####################################################################################################
+
+def activate_links(template, dirpath):
+	lines = template.split('\n')
+	result_lines = []
+	base_dir = os.path.dirname(os.path.abspath(__file__))
+	dir_path = dirpath.rstrip('/')
+	relative_path = '/' + os.path.relpath(dir_path, base_dir).replace('\\', '/')
+
+	for line in lines:
+		if '%ACTIVATION%' in line:
+			start = line.find('href="') + len('href="')
+			end = line.find('"', start)
+			href = line[start:end].rstrip('/')
+			# Ensure href_path starts with /
+			if not href.startswith('/'):
+				href = '/' + href
+			activation = 'active' if relative_path == href or relative_path.startswith(href + '/') else 'inactive'
+			if relative_path == '/.' and href == '/':
+				activation = 'active'
+			line = line.replace('%ACTIVATION%', activation)
+		result_lines.append(line)
+	return '\n'.join(result_lines)
+
 ## File Walker #########################################################################################################
 
 def walk_files(template, pandoc):
@@ -34,6 +58,7 @@ def walk_files(template, pandoc):
 			found = True
 		if found:
 			print(f'Regenerated: {os.path.join(dirpath, "index.html")}')
+			html_to_write = activate_links(html_to_write, dirpath)
 			save_html_page(html_to_write, dirpath, 'index.html')
 
 def read_text_file(directory, filename):
