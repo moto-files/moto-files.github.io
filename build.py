@@ -34,6 +34,19 @@ def activate_links(template, dirpath):
 ## File Walker #########################################################################################################
 
 def walk_files(template, markdown):
+	# Count all files first.
+	count_all = 0
+	for dirpath, dirnames, filenames in os.walk(os.path.dirname(os.path.abspath(__file__))):
+		found = False
+		if 'tabs.html' in filenames:
+			found = True
+		if 'content.md' in filenames:
+			found = True
+		if found:
+			count_all += 1
+
+	# Generate index.html files.
+	count_page = 0
 	for dirpath, dirnames, filenames in os.walk(os.path.dirname(os.path.abspath(__file__))):
 		html_to_write = template
 		found = False
@@ -54,9 +67,15 @@ def walk_files(template, markdown):
 				print(f'Error deleting {markdown_html}: {e}')
 			found = True
 		if found:
-			print(f'Regenerated: {os.path.join(dirpath, "index.html")}')
+			index_html = os.path.join(dirpath, 'index.html')
+			try:
+				os.remove(index_html)
+			except Exception as e:
+				print(f'Error deleting {index_html}: {e}')
 			html_to_write = activate_links(html_to_write, dirpath)
 			save_html_page(html_to_write, dirpath, 'index.html')
+			count_page += 1
+			print(f'Regenerated {count_page:03}/{count_all:03} pages: {os.path.join(dirpath, "index.html")}')
 
 def read_text_file(directory, filename):
 	try:
