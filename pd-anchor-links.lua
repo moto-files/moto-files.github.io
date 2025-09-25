@@ -1,5 +1,6 @@
 -- Adds anchor links to headings with IDs.
 -- See: https://github.com/jgm/pandoc-website/blob/master/tools/anchor-links.lua
+
 function Header(h)
 	if h.identifier ~= '' then
 		-- an empty link to this header
