@@ -33,7 +33,7 @@ def activate_links(template, dirpath):
 
 ## File Walker #########################################################################################################
 
-def walk_files(template, pandoc):
+def walk_files(template, markdown):
 	for dirpath, dirnames, filenames in os.walk(os.path.dirname(os.path.abspath(__file__))):
 		html_to_write = template
 		found = False
@@ -44,10 +44,7 @@ def walk_files(template, pandoc):
 		if 'content.md' in filenames:
 			full_path = os.path.join(dirpath, 'content.md')
 			markdown_html = os.path.join(dirpath, 'markdown.html')
-			execute_pandoc(
-				pandoc,
-				[full_path, '-f', 'gfm', '-t', 'html', '-o', markdown_html]
-			)
+			execute_md_gen(markdown, full_path, markdown_html)
 			html = read_text_file(dirpath, 'markdown.html')
 			html_to_write = html_to_write.replace('<!-- %MARKDOWN% --->', html)
 			# Delete generated file after use.
@@ -82,44 +79,50 @@ def save_html_page(content, directory, filename):
 	except Exception as e:
 		print(f'Error writing {path}: {e}')
 
-## Pandoc ##############################################################################################################
+## Markdown ############################################################################################################
 
-def find_pandoc():
-	# Try to find pandoc in PATH environment variable.
-	pandoc_path = which('pandoc')
-	if pandoc_path:
-		return pandoc_path
+def find_md_gen():
+	# Try to find markdown generator in PATH environment variable.
+	md_path = which('pandoc')
+	if md_path:
+		return md_path
 
 	script_dir = os.path.dirname(os.path.abspath(__file__))
-	local_pandoc = os.path.join(script_dir, 'pandoc.exe' if os.name == 'nt' else 'pandoc')
-	if os.path.isfile(local_pandoc) and os.access(local_pandoc, os.X_OK):
-		return local_pandoc
+	local_md = os.path.join(script_dir, 'pandoc.exe' if os.name == 'nt' else 'pandoc')
+	if os.path.isfile(local_md) and os.access(local_md, os.X_OK):
+		return local_md
 
-	print('Pandoc executable not found in PATH or script directory.', file=sys.stderr)
+	print('Markdown generator executable not found in PATH or script directory.', file=sys.stderr)
 
 	return None
 
-def execute_pandoc(pandoc, args=None):
-	cmd = [pandoc]
-	if args:
-		cmd.extend(args)
-
+def execute_md_gen(md, file_in, file_out):
+	lua_filter = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pd-anchor-links.lua')
+	cmd = [md]
+	cmd.extend([
+		file_in,
+		'-f', 'gfm+gfm_auto_identifiers+hard_line_breaks',
+		'-t', 'html',
+		'--lua-filter', lua_filter,
+		'-o', file_out
+	])
 	try:
 		result = subprocess.run(cmd, check=True)
 		return result.returncode
 	except subprocess.CalledProcessError as e:
-		print(f'Pandoc execution failed: {e}', file=sys.stderr)
+		print(f'Markdown generator execution failed: {e}', file=sys.stderr)
 		return e.returncode
 
 ## Entry Point #########################################################################################################
 
 def main():
-	print('Simple Static Site Generator, 2025, EXL')
+	print('Simple Static Site Generator v0.9')
+	print('EXL, 2025')
 	print()
-	pandoc = find_pandoc()
+	markdown = find_md_gen()
 	template = read_text_file(os.path.dirname(os.path.abspath(__file__)), 'index_.html')
-	if pandoc and template:
-		walk_files(template, pandoc)
+	if markdown and template:
+		walk_files(template, markdown)
 
 if __name__ == '__main__':
 	main()

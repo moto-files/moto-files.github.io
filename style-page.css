@@ -13,14 +13,52 @@ body {
 	background-color: #FFFFFF;
 }
 
-pre {
-	overflow-x: auto;
+code, pre {
 	margin: 0;
 	border: 1px solid #CCCCCC;
+	padding: 1px;
+}
+
+pre {
+	padding: 2px;
+}
+
+pre code {
+	margin: 0;
+	padding: 0;
+	border: none !important;
 }
 
 a {
 	color: #005386;
+}
+
+h1 {
+	margin: 0.5em 0.5em 0.5em 0;
+	font-size: 1.4rem;
+}
+
+h2 {
+	margin: 0.5em 0.5em 0.5em 0;
+	font-size: 1.3rem;
+}
+
+h3 {
+	margin: 0.5em 0.5em 0.5em 0;
+	font-size: 1.0rem;
+}
+
+h4 {
+	margin: 0.5em 0.5em 0.5em 0;
+	font-size: 0.9rem;
+}
+
+.class-anchor {
+	text-decoration: none;
+}
+
+.class-anchor a:hover {
+	text-decoration: underline;
 }
 
 .class-pos-right {

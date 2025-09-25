@@ -1,3 +1,8 @@
+# Markdown Generators.
 pandoc
 pandoc.exe
+comrak
+comrak.exe
+
+# Output Markdown Generated HTML.
 markdown.html
