@@ -3,25 +3,23 @@
 
 import os
 import sys
+import shutil
 import subprocess
-
-from shutil import which
 
 ## Links Activator #####################################################################################################
 
-def activate_links(template, dirpath):
-	lines = template.split('\n')
-	result_lines = []
-	base_dir = os.path.dirname(os.path.abspath(__file__))
-	dir_path = dirpath.rstrip('/')
-	relative_path = '/' + os.path.relpath(dir_path, base_dir).replace('\\', '/')
+def activate_links_filter(html_template, dirpath):
+	dir = dirpath.rstrip('/')
+	lines = html_template.split('\n')
+	relative_path = '/' + os.path.relpath(dir, root_dir()).replace('\\', '/')
 
+	result_lines = []
 	for line in lines:
 		if '%ACTIVATION%' in line:
 			start = line.find('href="') + len('href="')
 			end = line.find('"', start)
 			href = line[start:end].rstrip('/')
-			# Ensure href_path starts with /
+			# Ensure href_path starts with "/" char.
 			if not href.startswith('/'):
 				href = '/' + href
 			activation = 'active' if relative_path == href or relative_path.startswith(href + '/') else 'inactive'
@@ -33,115 +31,132 @@ def activate_links(template, dirpath):
 
 ## File Walker #########################################################################################################
 
-def walk_files(template, markdown):
+def root_dir():
+	return os.path.dirname(os.path.abspath(__file__))
+
+def on_dir(dirname, filename):
+	return os.path.join(dirname, filename)
+
+def on_root(filename):
+	return on_dir(root_dir(), filename)
+
+def del_file(filename):
+	if os.path.isfile(filename):
+		try:
+			os.remove(filename)
+		except Exception as exception:
+			print(f'Error: Cannot delete "{filename}" file!\n{exception}', file=sys.stderr)
+
+def read_html(filename):
+	try:
+		with open(filename, 'r', encoding='utf-8') as file:
+			content = file.read()
+		return content
+	except Exception as exception:
+		print(f'Error: Cannot read "{filename}" file!\n{exception}', file=sys.stderr)
+		return None
+
+def save_html(filename, content):
+	try:
+		with open(filename, 'w', encoding='utf-8') as file:
+			file.write(content)
+	except Exception as exception:
+		print(f'Error: Cannot write "{filename}" file!\n{exception}', file=sys.stderr)
+
+def walk_all_files(dirname, html_template, markdown_generator):
 	# Count all files first.
 	count_all = 0
-	for dirpath, dirnames, filenames in os.walk(os.path.dirname(os.path.abspath(__file__))):
-		found = False
-		if 'tabs.html' in filenames:
-			found = True
-		if 'content.md' in filenames:
-			found = True
-		if found:
+	for dirpath, dirnames, filenames in os.walk(dirname):
+		if any(file in filenames for file in ['tabs.html', 'content.md']):
 			count_all += 1
+
+	print(f'Found {count_all} files in "{dirname}".')
+	print()
 
 	# Generate index.html files.
 	count_page = 0
-	for dirpath, dirnames, filenames in os.walk(os.path.dirname(os.path.abspath(__file__))):
-		html_to_write = template
-		found = False
-		if 'tabs.html' in filenames:
-			tabs = read_text_file(dirpath, 'tabs.html')
-			html_to_write = html_to_write.replace('<!-- %TABS% --->', tabs)
-			found = True
-		if 'content.md' in filenames:
-			full_path = os.path.join(dirpath, 'content.md')
-			markdown_html = os.path.join(dirpath, 'markdown.html')
-			execute_md_gen(markdown, full_path, markdown_html)
-			html = read_text_file(dirpath, 'markdown.html')
-			html_to_write = html_to_write.replace('<!-- %MARKDOWN% --->', html)
-			# Delete generated file after use.
-			try:
-				os.remove(markdown_html)
-			except Exception as e:
-				print(f'Error deleting {markdown_html}: {e}')
-			found = True
-		if found:
-			index_html = os.path.join(dirpath, 'index.html')
-			try:
-				os.remove(index_html)
-			except Exception as e:
-				print(f'Error deleting {index_html}: {e}')
-			html_to_write = activate_links(html_to_write, dirpath)
-			save_html_page(html_to_write, dirpath, 'index.html')
+	for dirpath, dirnames, filenames in os.walk(dirname):
+		if any(file in filenames for file in ['tabs.html', 'content.md']):
+			html = html_template
+
+			if 'tabs.html' in filenames:
+				html = html.replace('<!-- %TABS% -->', read_html(on_dir(dirpath, 'tabs.html')))
+
+			if 'content.md' in filenames:
+				execute_markdown_generator(
+					markdown_generator,
+					on_dir(dirpath, 'content.md'),
+					on_dir(dirpath, 'markdown.html')
+				)
+
+				html = html.replace('<!-- %MARKDOWN% -->', read_html(on_dir(dirpath, 'markdown.html')))
+
+				# Delete generated file after use.
+				del_file(on_dir(dirpath, 'markdown.html'))
+
+			# Delete previous rendered "index.html" if any.
+			del_file(on_dir(dirpath, 'index.html'))
+
+			html = activate_links_filter(html, dirpath)
+			save_html(on_dir(dirpath, 'index.html'), html)
 			count_page += 1
-			print(f'Regenerated {count_page:03}/{count_all:03} pages: {os.path.join(dirpath, "index.html")}')
-
-def read_text_file(directory, filename):
-	try:
-		path = os.path.join(directory, filename) if directory else filename
-		with open(path, 'r', encoding='utf-8') as f:
-			content = f.read()
-		return content
-	except FileNotFoundError:
-		print(f'File not found: {path}')
-		return None
-	except Exception as e:
-		print(f'Error reading {path}: {e}')
-		return None
-
-def save_html_page(content, directory, filename):
-	try:
-		path = os.path.join(directory, filename) if directory else filename
-		with open(path, 'w', encoding='utf-8') as file:
-			file.write(content)
-	except Exception as e:
-		print(f'Error writing {path}: {e}')
+			print(f'Regenerated [{count_page:04}/{count_all:04}]: {on_dir(dirpath, "index.html")}')
 
 ## Markdown ############################################################################################################
 
-def find_md_gen():
-	# Try to find markdown generator in PATH environment variable.
-	md_path = which('pandoc')
-	if md_path:
-		return md_path
+def try_to_find_markdown_generator():
+	# Try to find markdown generator in PATH environment variable first.
+	system_markdown_generator = shutil.which('pandoc')
+	found_in_path = bool(system_markdown_generator)
 
-	script_dir = os.path.dirname(os.path.abspath(__file__))
-	local_md = os.path.join(script_dir, 'pandoc.exe' if os.name == 'nt' else 'pandoc')
-	if os.path.isfile(local_md) and os.access(local_md, os.X_OK):
-		return local_md
+	# Try to find markdown generator in the project root directory second.
+	local_markdown_generator = on_root('pandoc.exe' if os.name == 'nt' else 'pandoc')
+	found_in_root = (os.path.isfile(local_markdown_generator) and os.access(local_markdown_generator, os.X_OK))
 
-	print('Markdown generator executable not found in PATH or script directory.', file=sys.stderr)
-
+	# Use local markdown generator instead of system one if present.
+	if found_in_root:
+		return local_markdown_generator
+	if found_in_path:
+		return system_markdown_generator
+	print('Error: Markdown generator executable not found in the "PATH" or root project directory.', file=sys.stderr)
 	return None
 
-def execute_md_gen(md, file_in, file_out):
-	lua_filter = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pd-anchor-links.lua')
-	cmd = [md]
-	cmd.extend([
+def execute_markdown_generator(markdown_generator, file_in, file_out):
+	pandoc_lua_filter = on_root('pandoc-filter-links-anchor.lua')
+	command_with_args = [markdown_generator]
+	command_with_args.extend([
 		file_in,
 		'-f', 'gfm+gfm_auto_identifiers+hard_line_breaks',
 		'-t', 'html',
-		'--lua-filter', lua_filter,
+		'--lua-filter', pandoc_lua_filter,
 		'-o', file_out
 	])
 	try:
-		result = subprocess.run(cmd, check=True)
+		result = subprocess.run(command_with_args, check=True)
 		return result.returncode
-	except subprocess.CalledProcessError as e:
-		print(f'Markdown generator execution failed: {e}', file=sys.stderr)
-		return e.returncode
+	except subprocess.CalledProcessError as error:
+		print(f'Error: Markdown generator execution failed:\n{error}', file=sys.stderr)
+		return error.returncode
 
 ## Entry Point #########################################################################################################
 
 def main():
-	print('Simple Static Site Generator v0.9')
-	print('EXL, 2025')
+	print('Static Site Generator (SSG) v0.9 by EXL, 2025')
 	print()
-	markdown = find_md_gen()
-	template = read_text_file(os.path.dirname(os.path.abspath(__file__)), 'index_.html')
-	if markdown and template:
-		walk_files(template, markdown)
+
+	if len(sys.argv) > 2:
+		print('Usage:', file=sys.stderr)
+		print('\t./build.py', file=sys.stderr)
+		print('\t./build.py path/to/directory', file=sys.stderr)
+		return 1
+
+	markdown_generator = try_to_find_markdown_generator()
+	html_template = read_html(on_root('index_template.html'))
+	if markdown_generator and html_template:
+		walk_all_files(sys.argv[1] if (len(sys.argv) == 2) else root_dir(), html_template, markdown_generator)
+		return 0
+
+	return 1
 
 if __name__ == '__main__':
-	main()
+	sys.exit(main())
