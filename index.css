@@ -67,6 +67,7 @@ html, body {
 	padding: 0.2rem 0.5rem;
 	text-decoration: none;
 	border-right: 1px solid #AAAAAA;
+	color: #666666;
 }
 
 .site-sister-links a:hover, .site-sister-links a:focus, .site-sister-links a:focus-within, .site-sister-links a:active {
@@ -212,25 +213,9 @@ html, body {
 .site-footer a {
 	font-weight: bold;
 	text-decoration: none;
+	color: #666666;
 }
 
 .site-footer a:hover, .site-footer a:focus, .site-footer a:focus-within, .site-footer a:active {
 	color: #333333;
-}
-
-.glow-light, .glow-dark {
-	-moz-background-clip: text;
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-}
-
-.glow-light {
-	text-shadow: rgba(0, 0, 0, 0.5) 0px 3px 3px;
-	background-color: #666666;
-}
-
-.glow-dark {
-	text-shadow: rgba(255, 255, 255, 0.5) 0px 3px 3px;
-	background-color: #333333;
 }
