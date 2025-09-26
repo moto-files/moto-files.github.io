@@ -13,12 +13,20 @@ body {
 	font-family: sans-serif;
 	line-height: 1.0;
 	color: #000000;
-	background-color: #FFFFFF;
+	background-color: #CCCCCC;
 	font-size: 1rem;
 }
 
 html, body {
 	height: 100%;
+}
+
+.site {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	max-width: 1920px;
+	min-height: 100vh;
 }
 
 .site-header {
@@ -57,12 +65,12 @@ html, body {
 }
 
 .site-sister-links a {
-	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+	padding: 0.3rem;
 	text-decoration: none;
 	border-right: 1px solid #AAAAAA;
 }
 
-.site-sister-links a:hover, .site-sister-links a:focus, .site-sister-links a:active {
+.site-sister-links a:hover, .site-sister-links a:focus-within, .site-sister-links a:active {
 	color: #666666;
 }
 
@@ -79,7 +87,7 @@ html, body {
 	color: #F6F6F6;
 }
 
-.site-main-menu a:hover, .site-main-menu a:focus, .site-main-menu a:active {
+.site-main-menu a:hover, .site-main-menu a:focus-within, .site-main-menu a:active {
 	border-bottom: 3px solid #CCCCCC;
 }
 
@@ -89,8 +97,6 @@ html, body {
 
 .site-main-menu-right {
 	float: right;
-	margin: 0;
-	padding: 0;
 }
 
 .site-main-content {
@@ -107,35 +113,33 @@ html, body {
 	background-color: #EEEEEE;
 }
 
-.site-sidebar a {
-	display: block;
-	padding: 0.25rem 0;
-	color: #555555;
-	text-decoration: none;
+.site-sidebar ul {
+	list-style: none;
 }
 
-.site-sidebar a:hover, .site-sidebar a:focus, .site-sidebar a:active {
-	background-color: #CCCCCC;
+.site-sidebar li:hover, .site-sidebar li:focus-within, .site-sidebar li:active {
+	background-color: #DDDDDD;
 	border-right: 3px solid #AAAAAA;
 }
 
 .site-sidebar-active {
-	background-color: #CCCCCC;
+	background-color: #DDDDDD;
 	border-right: 3px solid #AAAAAA;
 }
 
-.site-sidebar li {
-	list-style: none;
-	margin: 0;
-	padding: 0.1rem 0.5rem;
+.site-sidebar a {
+	display: block;
+	padding: 0.35rem 0.5rem;
+	color: #555555;
+	text-decoration: none;
 }
 
-.site-sidebar-inner {
-	padding-left: 1.0rem !important;
+.site-sidebar-inner a {
+	padding-left: 1.5rem;
 }
 
-.site-sidebar-inner-inner {
-	padding-left: 1.5rem !important;
+.site-sidebar-inner-inner a {
+	padding-left: 2.0rem;
 }
 
 .site-view-content {
@@ -158,15 +162,13 @@ html, body {
 	color: #555555;
 }
 
-.site-view-tabs a:hover, .site-view-tabs a:focus, .site-view-tabs a:active {
+.site-view-tabs a:hover, .site-view-tabs a:focus-within, .site-view-tabs a:active {
 	border-bottom: 3px solid #AAAAAA;
 	background-color: #DDDDDD;
 }
 
 .site-view-tabs-right {
 	float: right;
-	margin: 0;
-	padding: 0;
 }
 
 .site-view-tabs-active {
@@ -198,7 +200,7 @@ html, body {
 	text-decoration: none;
 }
 
-.site-footer a:hover, .site-footer a:focus, .site-footer a:active {
+.site-footer a:hover, .site-footer a:focus-within, .site-footer a:active {
 	color: #666666;
 }
 
