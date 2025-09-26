@@ -100,7 +100,7 @@ def walk_all_files(dirname, html_template, markdown_generator):
 			html = activate_links_filter(html, dirpath)
 			save_html(on_dir(dirpath, 'index.html'), html)
 			count_page += 1
-			print(f'Regenerated [{count_page:04}/{count_all:04}]: {on_dir(dirpath, "index.html")}')
+			print(f'Compiled [{count_page:04}/{count_all:04}]: {on_dir(dirpath, "index.html")}')
 
 ## Markdown ############################################################################################################
 
