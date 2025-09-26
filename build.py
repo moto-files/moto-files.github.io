@@ -23,6 +23,7 @@ def activate_links_filter(html_template, dirpath):
 			if not href.startswith('/'):
 				href = '/' + href
 			activation = 'active' if relative_path == href or relative_path.startswith(href + '/') else 'inactive'
+			# Home page workaround.
 			if relative_path == '/.' and href == '/':
 				activation = 'active'
 			line = line.replace('%ACTIVATION%', activation)

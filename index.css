@@ -1,213 +1,217 @@
+/* Site */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 html {
 	overflow-y: scroll;
 }
 
 body {
-	display: flex;
-	flex-direction: column;
-	padding: 0;
-	margin: 0;
-	min-height: 100vh;
 	font-family: sans-serif;
+	line-height: 1.0;
 	color: #000000;
 	background-color: #FFFFFF;
+	font-size: 1rem;
 }
 
-code, pre {
-	margin: 0;
-	border: 1px solid #CCCCCC;
-	padding: 1px;
+html, body {
+	height: 100%;
 }
 
-pre {
-	padding: 2px;
+.site-header {
+	display: flex;
+	align-items: center;
+	padding: 0.4rem;
+	gap: 0.5rem;
+	color: #555555;
+	background: linear-gradient(#EEEEEE, #E6E6E6);
 }
 
-pre code {
-	margin: 0;
-	padding: 0;
-	border: none !important;
+.site-header-logo {
+	vertical-align: bottom;
 }
 
-a {
-	color: #005386;
-}
-
-h1 {
-	margin: 0.5em 0.5em 0.5em 0;
-	font-size: 1.4rem;
-}
-
-h2 {
-	margin: 0.5em 0.5em 0.5em 0;
-	font-size: 1.3rem;
-}
-
-h3 {
-	margin: 0.5em 0.5em 0.5em 0;
-	font-size: 1.0rem;
-}
-
-h4 {
-	margin: 0.5em 0.5em 0.5em 0;
-	font-size: 0.9rem;
-}
-
-.class-anchor {
+.site-header-link {
+	display: inline-block;
+	font-size: 1.75rem;
 	text-decoration: none;
+	color: #1177AA;
 }
 
-.class-anchor a:hover {
-	text-decoration: underline;
+.site-header-motto {
+	font-size: 1.10rem;
+	font-style: italic;
 }
 
-.class-pos-right {
+.site-sister-links {
+	display: flex;
+	align-items: center;
+	font-size: 0.8rem;
+	font-weight: bold;
+	border-top: 1px solid #AAAAAA;
+	border-bottom: 1px solid #AAAAAA;
+	background: linear-gradient(#EEEEEE, #E6E6E6);
+}
+
+.site-sister-links a {
+	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+	text-decoration: none;
+	border-right: 1px solid #AAAAAA;
+}
+
+.site-sister-links a:hover, .site-sister-links a:focus, .site-sister-links a:active {
+	color: #666666;
+}
+
+.site-main-menu {
+	padding: 0.35rem;
+	background: linear-gradient(#1177AA, #0E5478);
+	border-bottom: 1px solid #006699;
+	font-weight: bold;
+}
+
+.site-main-menu a {
+	padding: 0.25rem 0.5rem;
+	text-decoration: none;
+	color: #F6F6F6;
+}
+
+.site-main-menu a:hover, .site-main-menu a:focus, .site-main-menu a:active {
+	border-bottom: 3px solid #CCCCCC;
+}
+
+.site-main-menu-active {
+	border-bottom: 3px solid #CCCCCC;
+}
+
+.site-main-menu-right {
 	float: right;
 	margin: 0;
 	padding: 0;
 }
 
-.class-pos-left {
-	float: left;
-	margin: 0;
-	padding: 0;
-}
-
-.class-pos-center {
-	text-align: center;
-}
-
-.class-pos-sidebar-inner {
-	padding-left: 0.50em !important;
-}
-
-.class-link-active {
-	background-color: #DDDDDD !important;
-}
-
-.class-link-menu-active {
-	background-color: #006699 !important;
-}
-
-#id-header {
-	clear: both;
-	padding: 0.35em 0.35em 0.35em 0.7em;
-	font-size: 1.78rem;
-	color: #555555;
-	background-color: #EEEEEE;
-}
-
-#id-menu {
-	overflow: hidden;
-	clear: both;
-	padding: 0.35em;
-	color: #006699;
-	background-color: #1177AA;
-	border-top: 1px solid #CCCCCC;
-	border-bottom: 1px solid #006699;
-}
-
-#id-view-main {
+.site-main-content {
 	display: flex;
 	flex: 1;
-	margin: 0;
-	padding: 0;
 }
 
-#id-view-content {
-	flex: 1;
-	margin: 0;
-}
-
-#id-tabs {
-	overflow: hidden;
-	clear: both;
-	padding: 0.35em;
-	border-bottom: 1px solid #CCCCCC;
+.site-sidebar {
+	width: 11.0rem;
+	flex-shrink: 0;
+	padding: 1.0rem 0;
+	border-right: 1px solid #AAAAAA;
 	color: #555555;
 	background-color: #EEEEEE;
 }
 
-#id-view-markdown {
-	padding: 1.0em;
-}
-
-#id-sidebar {
-	padding: 1em 0;
-	border-right: 1px solid #CCCCCC;
+.site-sidebar a {
+	display: block;
+	padding: 0.25rem 0;
 	color: #555555;
-	background-color: #EEEEEE;
-	width: 180px;
-}
-
-#id-footer {
-	padding: 0.50em;
-	color: #FFFFFF;
-	background-color: #1177AA;
-	border-top: 1px solid #CCCCCC;
-}
-
-#id-header-subtitle {
-	font-style: italic;
-	font-size: 0.75em;
-}
-
-#id-header a, #id-menu a, #id-sidebar a,  #id-tabs a, #id-footer a{
 	text-decoration: none;
 }
 
-#id-header a {
-	color: #1177AA;
+.site-sidebar a:hover, .site-sidebar a:focus, .site-sidebar a:active {
+	background-color: #CCCCCC;
+	border-right: 3px solid #AAAAAA;
 }
 
-#id-menu a:hover, #id-menu a:focus, #id-menu a:active {
-	background-color: #006699;
+.site-sidebar-active {
+	background-color: #CCCCCC;
+	border-right: 3px solid #AAAAAA;
 }
 
-#id-menu a {
+.site-sidebar li {
+	list-style: none;
+	margin: 0;
+	padding: 0.1rem 0.5rem;
+}
+
+.site-sidebar-inner {
+	padding-left: 1.0rem !important;
+}
+
+.site-sidebar-inner-inner {
+	padding-left: 1.5rem !important;
+}
+
+.site-view-content {
+	flex: 1;
+	background-color: #FFFFFF;
+}
+
+.site-view-tabs {
+	overflow: hidden;
+	clear: both;
+	padding: 0.35rem;
+	border-bottom: 1px solid #AAAAAA;
+	color: #555555;
+	background-color: #EEEEEE;
+}
+
+.site-view-tabs a {
 	padding: 0.25em 0.5em;
-	color: #FFFFFF;
-}
-
-#id-sidebar a, #id-tabs a {
-	padding: 0.25em 0.5em;
+	text-decoration: none;
 	color: #555555;
 }
 
-#id-sidebar a:hover, #id-sidebar a:focus, #id-sidebar a:active {
+.site-view-tabs a:hover, .site-view-tabs a:focus, .site-view-tabs a:active {
+	border-bottom: 3px solid #AAAAAA;
 	background-color: #DDDDDD;
 }
 
-#id-sidebar ul {
+.site-view-tabs-right {
+	float: right;
 	margin: 0;
 	padding: 0;
 }
 
-#id-sidebar li {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-#id-sidebar li ul {
-	padding-left: 0.6em !important;
-}
-
-#id-sidebar li a {
-	display: block;
-	margin: 0;
-	padding: 0.4em;
-}
-
-#id-tabs a:hover, #id-tabs a:focus, #id-tabs a:active {
+.site-view-tabs-active {
+	border-bottom: 3px solid #AAAAAA;
 	background-color: #DDDDDD;
 }
 
-#id-footer a {
-	color: #FFFFFF;
+.site-view-markdown {
+	padding: 1.0rem;
+	line-height: 1.2;
+}
+
+.site-footer {
+	overflow: hidden;
+	clear: both;
+	border-top: 1px solid #AAAAAA;
+	padding: 0.4rem;
+	color: #555555;
+	background: linear-gradient(#EEEEEE, #E6E6E6);
+}
+
+.site-footer-center {
+	padding: 0.2rem;
+	text-align: center;
+}
+
+.site-footer a {
 	font-weight: bold;
+	text-decoration: none;
 }
 
-#id-footer a:hover, #id-footer a:focus, #id-footer a:active {
-	text-decoration: underline;
+.site-footer a:hover, .site-footer a:focus, .site-footer a:active {
+	color: #666666;
+}
+
+.glow-light {
+	background-clip: text;
+	text-shadow: rgba(0, 0, 0, 0.5) 0px 3px 3px;
+	background-color: #666666;
+	color: transparent;
+}
+
+.glow-dark {
+	background-clip: text;
+	text-shadow: rgba(255, 255, 255, 0.5) 0px 3px 3px;
+	background-color: #666666;
+	color: transparent;
 }
