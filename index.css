@@ -33,7 +33,7 @@ html, body {
 	align-items: center;
 	padding: 0.4rem;
 	gap: 0.5rem;
-	color: #555555;
+	color: #333333;
 	background: linear-gradient(#EEEEEE, #E6E6E6);
 }
 
@@ -45,7 +45,7 @@ html, body {
 	display: inline-block;
 	font-size: 1.75rem;
 	text-decoration: none;
-	color: #1177AA;
+	color: #006699;
 }
 
 .site-header-motto {
@@ -69,8 +69,8 @@ html, body {
 	border-right: 1px solid #AAAAAA;
 }
 
-.site-sister-links a:hover, .site-sister-links a:focus-within, .site-sister-links a:active {
-	color: #666666;
+.site-sister-links a:hover, .site-sister-links a:focus, .site-sister-links a:focus-within, .site-sister-links a:active {
+	color: #333333;
 }
 
 .site-main-menu {
@@ -81,13 +81,15 @@ html, body {
 }
 
 .site-main-menu a {
-	padding: 0.30rem 0.5rem 0.25rem 0.5rem;
+	display: flex;
+	padding: 0.4rem 0.5rem 0.25rem 0.5rem;
+	margin: 0 0.2rem;
 	text-decoration: none;
 	border-bottom: 3px solid transparent;
 	color: #F6F6F6;
 }
 
-.site-main-menu a:hover, .site-main-menu a:focus-within, .site-main-menu a:active {
+.site-main-menu a:hover, .site-main-menu a:focus, .site-main-menu a:focus-within, .site-main-menu a:active {
 	border-bottom-color: #CCCCCC;
 }
 
@@ -97,6 +99,10 @@ html, body {
 
 .site-main-menu-right {
 	margin-left: auto;
+}
+
+.site-main-menu-right a {
+	display: inline-block;
 }
 
 .site-main-content {
@@ -109,7 +115,7 @@ html, body {
 	flex-shrink: 0;
 	padding: 0.5rem 0;
 	border-right: 1px solid #AAAAAA;
-	color: #555555;
+	color: #333333;
 	background-color: #EEEEEE;
 }
 
@@ -117,7 +123,7 @@ html, body {
 	list-style: none;
 }
 
-.site-sidebar li:hover, .site-sidebar li:focus-within, .site-sidebar li:active {
+.site-sidebar li:hover, .site-sidebar li:focus, .site-sidebar li:focus-within, .site-sidebar li:active {
 	background-color: #DDDDDD;
 	border-right: 3px solid #AAAAAA;
 }
@@ -131,7 +137,7 @@ html, body {
 	display: block;
 	padding: 0.25rem 0.5rem;
 	margin: 0.2rem 0;
-	color: #555555;
+	color: #333333;
 	text-decoration: none;
 }
 
@@ -154,24 +160,29 @@ html, body {
 	gap: 0.2rem;
 	padding-left: 0.5rem;
 	border-bottom: 1px solid #AAAAAA;
-	color: #555555;
+	color: #333333;
 	background-color: #EEEEEE;
 }
 
 .site-view-tabs a {
-	padding: 0.30rem 0.5rem 0.25rem 0.5rem;
+	display: flex;
+	padding: 0.4rem 0.5rem 0.25rem 0.5rem;
 	text-decoration: none;
 	border-bottom: 3px solid transparent;
-	color: #555555;
+	color: #333333;
 }
 
-.site-view-tabs a:hover, .site-view-tabs a:focus-within, .site-view-tabs a:active {
+.site-view-tabs a:hover, .site-view-tabs a:focus, .site-view-tabs a:focus-within, .site-view-tabs a:active {
 	border-bottom-color: #AAAAAA;
 	background-color: #DDDDDD;
 }
 
 .site-view-tabs-right {
 	margin-left: auto;
+}
+
+.site-view-tabs-right a {
+	display: inline-block;
 }
 
 .site-view-tabs a.site-view-tabs-active {
@@ -189,7 +200,7 @@ html, body {
 	clear: both;
 	border-top: 1px solid #AAAAAA;
 	padding: 0.4rem;
-	color: #555555;
+	color: #333333;
 	background: linear-gradient(#EEEEEE, #E6E6E6);
 }
 
@@ -203,8 +214,8 @@ html, body {
 	text-decoration: none;
 }
 
-.site-footer a:hover, .site-footer a:focus-within, .site-footer a:active {
-	color: #666666;
+.site-footer a:hover, .site-footer a:focus, .site-footer a:focus-within, .site-footer a:active {
+	color: #333333;
 }
 
 .glow-light, .glow-dark {
@@ -221,5 +232,5 @@ html, body {
 
 .glow-dark {
 	text-shadow: rgba(255, 255, 255, 0.5) 0px 3px 3px;
-	background-color: #666666;
+	background-color: #333333;
 }
