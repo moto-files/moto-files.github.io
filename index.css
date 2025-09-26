@@ -95,7 +95,7 @@ html, body {
 }
 
 .site-main-menu a.site-main-menu-active {
-	border-bottom: 3px solid #CCCCCC;
+	border-bottom-color: #CCCCCC;
 }
 
 .site-main-menu-right {
