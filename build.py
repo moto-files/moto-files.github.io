@@ -68,7 +68,7 @@ def walk_all_files(dirname, html_template, markdown_generator):
 	# Count all files first.
 	count_all = 0
 	for dirpath, dirnames, filenames in os.walk(dirname):
-		if any(file in filenames for file in ['tabs.html', 'content.md']):
+		if any(file in filenames for file in ['tabs.html', 'tabs-inner.html', 'content.md']):
 			count_all += 1
 
 	print(f'Found {count_all} files in "{dirname}".')
@@ -77,11 +77,14 @@ def walk_all_files(dirname, html_template, markdown_generator):
 	# Generate index.html files.
 	count_page = 0
 	for dirpath, dirnames, filenames in os.walk(dirname):
-		if any(file in filenames for file in ['tabs.html', 'content.md']):
+		if any(file in filenames for file in ['tabs.html', 'tabs-inner.html', 'content.md']):
 			html = html_template
 
 			if 'tabs.html' in filenames:
 				html = html.replace('<!-- %TABS% -->', read_html(on_dir(dirpath, 'tabs.html')))
+
+			if 'tabs-inner.html' in filenames:
+				html = html.replace('<!-- %TABS-INNER% -->', read_html(on_dir(dirpath, 'tabs-inner.html')))
 
 			if 'content.md' in filenames:
 				execute_markdown_generator(
@@ -123,7 +126,7 @@ def try_to_find_markdown_generator():
 	return None
 
 def execute_markdown_generator(markdown_generator, file_in, file_out):
-	pandoc_lua_filter = on_root('pandoc-filter-links-anchor.lua')
+	pandoc_lua_filter = on_root('pandoc-filters.lua')
 	command_with_args = [markdown_generator]
 	command_with_args.extend([
 		file_in,
