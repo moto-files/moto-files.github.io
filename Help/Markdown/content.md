@@ -1,15 +1,128 @@
 # Markdown Cheat Sheet
 
-Page generation is powered by **[Pandoc](https://pandoc.org/)**, and **[GitHub Flavored Markdown](https://github.github.com/gfm/)** is used for markup.
-
-This document describes a basic writing and formatting GFM syntax.
+The pages on this site are written in **[GitHub Flavored Markdown](//github.github.com/gfm/)** (GFM) and converted to HTML using **[Pandoc](//pandoc.org/)** utility. This page provides a guide to the basic GFM syntax. Further details are available in GitHub's official **[Basic Writing and Formatting Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)** document.
 
 ---
 
-## Headings
+## 1. Bold, Italic, Strikethrough, Underline, Superscript, Subscript
 
-To create a heading, add one to four `#` symbols before your heading text. 
-The number of `#` you use will determine the hierarchy level and typeface size of the heading.
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in documents.
+
+**Code:**
+
+```
+**This is bold text**
+_This text is italicized_
+~~This was mistaken text~~
+**This text is _extremely_ important**
+***All this text is important***
+This is a <sup>superscript</sup> text
+This is a <sub>subscript</sub> text
+This is an <ins>underlined</ins> text
+```
+
+**Result:**
+
+**This is bold text**
+_This text is italicized_
+~~This was mistaken text~~
+**This text is _extremely_ important**
+***All this text is important***
+This is a <sup>superscript</sup> text
+This is a <sub>subscript</sub> text
+This is an <ins>underlined</ins> text
+
+---
+
+## 2. Inline code and Code blocks
+
+You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted. To format code or text into its own distinct block, use triple backticks without `\` backsplash. In addition, you can set the code language for proper highlighting.
+
+**Code:**
+
+```
+Use `git status` to list all new or modified files that haven't yet been committed.
+
+\```
+git status
+git add
+git commit
+\```
+
+\```c
+int main(int argc, char *argv[]) {
+	return 0;
+}
+\```
+```
+
+**Result:**
+
+Use `git status` to list all new or modified files that haven't yet been committed.
+
+```
+git status
+git add
+git commit
+```
+
+```c
+int main(int argc, char *argv[]) {
+	return 0;
+}
+```
+
+---
+
+## 3. Quoting
+
+You can quote text with a `>` character, nested quotes are also supported.
+
+**Code:**
+
+```
+> Text that is a quote
+> Text that is a quote
+>
+> Text that is a quote
+>
+>> Text that is a quote
+>> Text that is a quote
+>
+> Text that is a quote
+```
+
+**Result:**
+
+> Text that is a quote
+> Text that is a quote
+>
+> Text that is a quote
+>
+>> Text that is a quote
+>> Text that is a quote
+>
+> Text that is a quote
+
+---
+
+## 1. Horizontal Line
+
+A simple horizontal line is convenient for separating sections of information.
+
+**Code:**
+
+```md
+---
+```
+
+**Result:**
+
+---
+
+## 2. Headings
+
+To create a heading, add one to four `#` symbols before your heading text. The number of `#` you use will determine the hierarchy level and typeface size of the heading.
 
 **Code:**
 

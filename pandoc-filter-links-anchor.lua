@@ -8,7 +8,7 @@ function Header(header)
 			header.content,                                           -- content
 			'#' .. header.identifier,                                 -- href
 			pandoc.utils.stringify(header.content),                   -- title
-			{ class = 'class-anchor', ['aria-hidden'] = 'true' }      -- attributes
+			{ class = 'anchor-link', ['aria-hidden'] = 'true' }       -- attributes
 		)
 		header.content = { anchor_link }
 		return header

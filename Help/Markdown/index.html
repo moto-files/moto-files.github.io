@@ -56,7 +56,7 @@
 				<li class="site-sidebar-inner site-sidebar-inactive"><a href="/Microsoft/MS-DOS-3">MS-DOS 6.22</a></li>
 				<li class="site-sidebar-inner site-sidebar-inactive"><a href="/Microsoft/Windows-1">Windows 1.04</a></li>
 				<li class="site-sidebar-inner site-sidebar-inactive"><a href="/Microsoft/Windows-2">Windows 2.11</a></li>
-				<li class="site-sidebar-inner site-sidebar-inactive"><a href="/Microsoft/Windows-3">Windows 3.11</a></li>
+				<li class="site-sidebar-inner site-sidebar-inactive"><a href="/Microsoft/Windows-3">Windows FWG 3.11</a></li>
 				<li class="site-sidebar-inner site-sidebar-inactive"><a href="/Microsoft/Windows-3-NT">Windows NT 3.51</a></li>
 				<li class="site-sidebar-inner site-sidebar-inactive"><a href="/Microsoft/Windows-4-NT">Windows NT 4.0</a></li>
 				<li class="site-sidebar-inner site-sidebar-inactive"><a href="/Microsoft/Windows-95">Windows 95</a></li>
@@ -83,42 +83,137 @@
 
 			<div class="site-view-markdown">
 			<h1 id="markdown-cheat-sheet"><a href="#markdown-cheat-sheet"
-class="class-anchor" aria-hidden="true"
+class="anchor-link" aria-hidden="true"
 title="Markdown Cheat Sheet">Markdown Cheat Sheet</a></h1>
-<p>Page generation is powered by <strong><a
-href="https://pandoc.org/">Pandoc</a></strong>, and <strong><a
-href="https://github.github.com/gfm/">GitHub Flavored
-Markdown</a></strong> is used for markup.</p>
-<p>This document describes a basic writing and formatting GFM
-syntax.</p>
+<p>The pages on this site are written in <strong><a
+href="//github.github.com/gfm/">GitHub Flavored Markdown</a></strong>
+(GFM) and converted to HTML using <strong><a
+href="//pandoc.org/">Pandoc</a></strong> utility. This page provides a
+guide to the basic GFM syntax. Further details are available in GitHub's
+official <strong><a
+href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Basic
+Writing and Formatting Syntax</a></strong> document.</p>
 <hr />
-<h2 id="headings"><a href="#headings" class="class-anchor"
-aria-hidden="true" title="Headings">Headings</a></h2>
-<p>To create a heading, add one to four <code>#</code> symbols before
-your heading text.<br />
-The number of <code>#</code> you use will determine the hierarchy level
-and typeface size of the heading.</p>
+<h2 id="1-bold-italic-strikethrough-underline-superscript-subscript"><a
+href="#1-bold-italic-strikethrough-underline-superscript-subscript"
+class="anchor-link" aria-hidden="true"
+title="1. Bold, Italic, Strikethrough, Underline, Superscript, Subscript">1.
+Bold, Italic, Strikethrough, Underline, Superscript, Subscript</a></h2>
+<p>You can indicate emphasis with bold, italic, strikethrough,
+subscript, or superscript text in documents.</p>
 <p><strong>Code:</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># A first-level heading</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## A second-level heading</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### A third-level heading</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">#### A fourth-level heading</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>asd</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>asd</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>asd</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>asd</span></code></pre></div>
+<pre><code>**This is bold text**
+_This text is italicized_
+~~This was mistaken text~~
+**This text is _extremely_ important**
+***All this text is important***
+This is a &lt;sup&gt;superscript&lt;/sup&gt; text
+This is a &lt;sub&gt;subscript&lt;/sub&gt; text
+This is an &lt;ins&gt;underlined&lt;/ins&gt; text</code></pre>
+<p><strong>Result:</strong></p>
+<p><strong>This is bold text</strong><br />
+<em>This text is italicized</em><br />
+<del>This was mistaken text</del><br />
+<strong>This text is <em>extremely</em> important</strong><br />
+<em><strong>All this text is important</strong></em><br />
+This is a <sup>superscript</sup> text<br />
+This is a <sub>subscript</sub> text<br />
+This is an <ins>underlined</ins> text</p>
+<hr />
+<h2 id="2-inline-code-and-code-blocks"><a
+href="#2-inline-code-and-code-blocks" class="anchor-link"
+aria-hidden="true" title="2. Inline code and Code blocks">2. Inline code
+and Code blocks</a></h2>
+<p>You can call out code or a command within a sentence with single
+backticks. The text within the backticks will not be formatted. To
+format code or text into its own distinct block, use triple backticks
+without <code>\</code> backsplash. In addition, you can set the code
+language for proper highlighting.</p>
+<p><strong>Code:</strong></p>
+<pre><code>Use `git status` to list all new or modified files that haven&#39;t yet been committed.
+
+\```
+git status
+git add
+git commit
+\```
+
+\```c
+int main(int argc, char *argv[]) {
+    return 0;
+}
+\```</code></pre>
+<p><strong>Result:</strong></p>
+<p>Use <code>git status</code> to list all new or modified files that
+haven't yet been committed.</p>
+<pre><code>git status
+git add
+git commit</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">int</span> argc<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>argv<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<h2 id="3-quoting"><a href="#3-quoting" class="anchor-link"
+aria-hidden="true" title="3. Quoting">3. Quoting</a></h2>
+<p>You can quote text with a <code>&gt;</code> character, nested quotes
+are also supported.</p>
+<p><strong>Code:</strong></p>
+<pre><code>&gt; Text that is a quote
+&gt; Text that is a quote
+&gt;
+&gt; Text that is a quote
+&gt;
+&gt;&gt; Text that is a quote
+&gt;&gt; Text that is a quote
+&gt;
+&gt; Text that is a quote</code></pre>
+<p><strong>Result:</strong></p>
+<blockquote>
+<p>Text that is a quote<br />
+Text that is a quote</p>
+<p>Text that is a quote</p>
+<blockquote>
+<p>Text that is a quote<br />
+Text that is a quote</p>
+</blockquote>
+<p>Text that is a quote</p>
+</blockquote>
+<hr />
+<h2 id="1-horizontal-line"><a href="#1-horizontal-line"
+class="anchor-link" aria-hidden="true" title="1. Horizontal Line">1.
+Horizontal Line</a></h2>
+<p>A simple horizontal line is convenient for separating sections of
+information.</p>
+<p><strong>Code:</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code></pre></div>
+<p><strong>Result:</strong></p>
+<hr />
+<h2 id="2-headings"><a href="#2-headings" class="anchor-link"
+aria-hidden="true" title="2. Headings">2. Headings</a></h2>
+<p>To create a heading, add one to four <code>#</code> symbols before
+your heading text. The number of <code>#</code> you use will determine
+the hierarchy level and typeface size of the heading.</p>
+<p><strong>Code:</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># A first-level heading</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## A second-level heading</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### A third-level heading</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">#### A fourth-level heading</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>asd</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>asd</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>asd</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>asd</span></code></pre></div>
 <p><strong>Result:</strong></p>
 <h1 id="a-first-level-heading"><a href="#a-first-level-heading"
-class="class-anchor" aria-hidden="true" title="A first-level heading">A
+class="anchor-link" aria-hidden="true" title="A first-level heading">A
 first-level heading</a></h1>
 <h2 id="a-second-level-heading"><a href="#a-second-level-heading"
-class="class-anchor" aria-hidden="true" title="A second-level heading">A
+class="anchor-link" aria-hidden="true" title="A second-level heading">A
 second-level heading</a></h2>
 <h3 id="a-third-level-heading"><a href="#a-third-level-heading"
-class="class-anchor" aria-hidden="true" title="A third-level heading">A
+class="anchor-link" aria-hidden="true" title="A third-level heading">A
 third-level heading</a></h3>
 <h4 id="a-fourth-level-heading"><a href="#a-fourth-level-heading"
-class="class-anchor" aria-hidden="true" title="A fourth-level heading">A
+class="anchor-link" aria-hidden="true" title="A fourth-level heading">A
 fourth-level heading</a></h4>
 <hr />
 <p><code>#0969DA</code></p>
@@ -178,8 +273,8 @@ problems.</p>
 summary tag. You should be able to write any markdown you want inside
 the <code>&lt;details&gt;</code> tag... just make sure you close
 <code>&lt;details&gt;</code> afterward.</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;I&#39;m a code block!&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;I&#39;m a code block!&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </details>
 
 			</div>
