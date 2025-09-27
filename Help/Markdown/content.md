@@ -1,6 +1,6 @@
 # Markdown Cheat Sheet
 
-The pages on this site are written in **[GitHub Flavored Markdown](//github.github.com/gfm/)** (GFM) and converted to HTML using **[Pandoc](//pandoc.org/)** utility. This page provides a guide to the basic GFM syntax. Further details are available in GitHub's official **[Basic Writing and Formatting Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)** document.
+The pages on this site are written in **[GitHub Flavored Markdown](//github.github.com/gfm/)** (GFM) and converted to HTML using **[Pandoc](//pandoc.org/)** utility. This page provides a guide to the basic GFM syntax. Further details are available in GitHub's official **[Basic Writing and Formatting Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)** document. Hard-breaks are enabled for this configuration, each line break in Markdown will be rendered in the HTML page.
 
 ---
 
