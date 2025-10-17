@@ -35,6 +35,7 @@ html, body {
 	gap: 0.5rem;
 	color: #333333;
 	background: linear-gradient(#EEEEEE, #E6E6E6);
+	text-shadow: white 0 1px;
 }
 
 .site-header-logo {
@@ -61,6 +62,7 @@ html, body {
 	border-top: 1px solid #AAAAAA;
 	border-bottom: 1px solid #AAAAAA;
 	background: linear-gradient(#EEEEEE, #E6E6E6);
+	text-shadow: white 0 1px;
 }
 
 .site-sister-links a {
@@ -87,7 +89,8 @@ html, body {
 	margin: 0 0.2rem;
 	text-decoration: none;
 	border-bottom: 3px solid transparent;
-	color: #F6F6F6;
+	color: white;
+	text-shadow: black 1px 1px;
 }
 
 .site-main-menu a:hover, .site-main-menu a:focus, .site-main-menu a:focus-within, .site-main-menu a:active {
@@ -118,6 +121,7 @@ html, body {
 	border-right: 1px solid #AAAAAA;
 	color: #333333;
 	background-color: #EEEEEE;
+	text-shadow: white 0 1px;
 }
 
 .site-sidebar ul {
@@ -153,6 +157,7 @@ html, body {
 .site-view-content {
 	flex: 1;
 	background-color: #FFFFFF;
+	min-width: 0;
 }
 
 .site-view-tabs {
@@ -163,6 +168,7 @@ html, body {
 	border-bottom: 1px solid #AAAAAA;
 	color: #333333;
 	background-color: #EEEEEE;
+	text-shadow: white 0 1px;
 }
 
 .site-view-tabs a {
@@ -191,11 +197,6 @@ html, body {
 	background-color: #DDDDDD;
 }
 
-.site-view-markdown {
-	padding: 1.0rem;
-	line-height: 1.5;
-}
-
 .site-footer {
 	overflow: hidden;
 	clear: both;
@@ -203,6 +204,7 @@ html, body {
 	padding: 0.4rem;
 	color: #333333;
 	background: linear-gradient(#EEEEEE, #E6E6E6);
+	text-shadow: white 0 1px;
 }
 
 .site-footer-center {
@@ -221,10 +223,136 @@ html, body {
 }
 
 /* Markdown */
-a {
+.site-view-markdown {
+	padding: 1.0rem;
+	line-height: 1.5;
+	hyphens: auto;
+}
+
+.site-view-markdown p {
+	padding: 0.3rem 0;
+}
+
+.site-view-markdown a {
 	color: #006699;
 }
 
+.site-view-markdown a:visited {
+	color: #666699;
+}
+
+.pandoc-header a {
+	text-decoration: none;
+}
+
+.pandoc-header a:visited {
+	color: #006699;
+}
+
+.pandoc-header {
+	padding: 0.3rem 0;
+}
+
+.site-view-markdown h1 {
+	font-size: 1.4em;
+}
+
+.site-view-markdown h2 {
+	font-size: 1.3em;
+}
+
+.site-view-markdown h3 {
+	font-size: 1.2em;
+}
+
+.site-view-markdown h4 {
+	font-size: 1.0em;
+}
+
+.site-view-markdown h5 {
+	font-size: 0.9em;
+}
+
+.site-view-markdown h6 {
+	font-size: 0.8em;
+}
+
+.site-view-markdown table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0.3rem 0;
+}
+
+.site-view-markdown th, .site-view-markdown td {
+	border: 1px solid #AAAAAA;
+	padding: 0.5rem;
+	text-align: left;
+}
+
+.site-view-markdown th {
+	font-weight: bold;
+	background-color: #EEEEEE;
+}
+
+.site-view-markdown .th-10 {
+	width: 10%;
+}
+
+.site-view-markdown .th-25 {
+	width: 25%;
+}
+
+.site-view-markdown .th-50 {
+	width: 50%;
+}
+
+.site-view-markdown .th-75 {
+	width: 75%;
+}
+
+.site-view-markdown .pandoc-code-inline, .site-view-markdown .pandoc-code-block {
+	hyphens: none;
+	font-size: 0.8rem;
+	font-family: monospace;
+	background-color: #EEEEEE;
+	white-space: nowrap;
+}
+
+.site-view-markdown .pandoc-code-inline {
+	display: inline;
+	vertical-align: middle;
+	padding: 2px 4px;
+	overflow-x: visible;
+}
+
+.site-view-markdown .pandoc-code-block {
+	overflow-x: auto;
+	display: block;
+	padding: 0.5rem 0.8rem;
+	margin: 0.3rem 0;
+	border: 1px solid #AAAAAA;
+}
+
+.site-view-markdown blockquote {
+	font-style: italic;
+	padding: 0 0.5rem;
+	margin: 0.3rem 0;
+	border-left: 4px solid #AAAAAA;
+	color: #555555;
+}
+
+.site-view-markdown ul, .site-view-markdown ol {
+	padding-left: 1.0rem;
+}
+
+.site-view-markdown hr {
+	border: 0;
+	height: 2px;
+	background-color: #AAAAAA;
+	margin: 0.3rem 0;
+}
+
+/*
 hr {
 	display: block;
 	height: 2px;
