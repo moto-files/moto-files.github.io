@@ -6,6 +6,18 @@ import sys
 import shutil
 import subprocess
 
+from datetime import datetime, timezone
+
+## Timestamps
+
+def format_date_time(date_time):
+	return date_time.strftime('%Y-%m-%d %H:%M:%S %Z%z')
+
+def insert_timestamp_filter(html_template, date_time):
+	year = str(date_time.year)
+	timestamp = format_date_time(date_time)
+	return html_template.replace('%YEAR%', year).replace('%TIMESTAMP%', timestamp)
+
 ## Links Activator #####################################################################################################
 
 def activate_links_filter(html_template, dirpath):
@@ -64,7 +76,7 @@ def save_html(filename, content):
 	except Exception as exception:
 		print(f'Error: Cannot write "{filename}" file!\n{exception}', file=sys.stderr)
 
-def walk_all_files(dirname, html_template, markdown_generator):
+def walk_all_files(dirname, html_template, markdown_generator, date_time):
 	# Count all files first.
 	count_all = 0
 	for dirpath, dirnames, filenames in os.walk(dirname):
@@ -102,6 +114,7 @@ def walk_all_files(dirname, html_template, markdown_generator):
 			del_file(on_dir(dirpath, 'index.html'))
 
 			html = activate_links_filter(html, dirpath)
+			html = insert_timestamp_filter(html, date_time)
 			save_html(on_dir(dirpath, 'index.html'), html)
 			count_page += 1
 			print(f'Compiled [{count_page:04}/{count_all:04}]: {on_dir(dirpath, "index.html")}')
@@ -157,7 +170,13 @@ def main():
 	markdown_generator = try_to_find_markdown_generator()
 	html_template = read_html(on_root('index_template.html'))
 	if markdown_generator and html_template:
-		walk_all_files(sys.argv[1] if (len(sys.argv) == 2) else root_dir(), html_template, markdown_generator)
+		dt_start = datetime.now(timezone.utc)
+		print(f'Started on: {format_date_time(dt_start)}')
+		walk_all_files(sys.argv[1] if (len(sys.argv) == 2) else root_dir(), html_template, markdown_generator, dt_start)
+		dt_end = datetime.now(timezone.utc)
+		print()
+		print(f'Ended on: {format_date_time(dt_end)}')
+		print(f'Elapsed: {dt_end - dt_start}')
 		return 0
 
 	return 1
