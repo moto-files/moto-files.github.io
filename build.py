@@ -8,6 +8,8 @@ import subprocess
 
 from datetime import datetime, timezone
 
+FROZEN_TIMESTAMP = '2025-10-19 02:23:50 UTC+0000'
+
 ## Timestamps
 
 def format_date_time(date_time):
@@ -16,6 +18,7 @@ def format_date_time(date_time):
 def insert_timestamp_filter(html_template, date_time):
 	year = str(date_time.year)
 	timestamp = format_date_time(date_time)
+	timestamp = FROZEN_TIMESTAMP
 	return html_template.replace('%YEAR%', year).replace('%TIMESTAMP%', timestamp)
 
 ## Links Activator #####################################################################################################
@@ -146,6 +149,7 @@ def execute_markdown_generator(markdown_generator, file_in, file_out):
 		'-f', 'gfm+gfm_auto_identifiers+hard_line_breaks',
 		'-t', 'html',
 		'--lua-filter', pandoc_lua_filter,
+		'--reference-location', 'block',
 		'-o', file_out
 	])
 	try:

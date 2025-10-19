@@ -345,11 +345,27 @@ html, body {
 	padding-left: 1.0rem;
 }
 
+.site-view-markdown ul a, .site-view-markdown ol a {
+	text-decoration: none;
+}
+
 .site-view-markdown hr {
 	border: 0;
 	height: 2px;
 	background-color: #AAAAAA;
 	margin: 0.3rem 0;
+}
+
+.footnote-ref, .footnote-back {
+	text-decoration: none;
+}
+
+.footnote-ref:hover, .footnote-ref:focus, .footnote-ref:focus-within, .footnote-ref:active {
+	text-decoration: underline;
+}
+
+.footnote-back:hover, .footnote-back:focus, .footnote-back:focus-within, .footnote-back:active {
+	text-decoration: underline;
 }
 
 /*
