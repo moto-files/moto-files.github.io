@@ -356,16 +356,34 @@ html, body {
 	margin: 0.3rem 0;
 }
 
-.footnote-ref, .footnote-back {
+.site-view-markdown .footnote-ref, .site-view-markdown .footnote-back {
 	text-decoration: none;
 }
 
-.footnote-ref:hover, .footnote-ref:focus, .footnote-ref:focus-within, .footnote-ref:active {
+.site-view-markdown .footnote-ref:hover, .site-view-markdown .footnote-ref:focus,
+.site-view-markdown .footnote-ref:focus-within, .site-view-markdown .footnote-ref:active,
+.site-view-markdown .footnote-back:hover, .site-view-markdown .footnote-back:focus,
+.site-view-markdown .footnote-back:focus-within, .site-view-markdown .footnote-back:active {
 	text-decoration: underline;
 }
 
-.footnote-back:hover, .footnote-back:focus, .footnote-back:focus-within, .footnote-back:active {
-	text-decoration: underline;
+.site-view-markdown .task-list li {
+	list-style-type: none;
+}
+
+.site-view-markdown .task-list input[type="checkbox"],
+.site-view-markdown .task-list label:has(input[type="checkbox"]) {
+	margin: 0px 6px 2px -6px;
+	vertical-align: middle;
+	pointer-events: none;
+}
+
+.site-view-markdown summary {
+	cursor: pointer;
+}
+
+.site-view-markdown details summary ~ * {
+	margin-left: 10px !important;
 }
 
 /*
