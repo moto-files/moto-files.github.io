@@ -24,7 +24,7 @@ html, body {
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-	max-width: 1920px;
+	max-width: 1400px;
 	min-height: 100vh;
 }
 
@@ -222,7 +222,7 @@ html, body {
 	color: #006699;
 }
 
-/* Markdown */
+/* Markdown and Pandoc */
 .site-view-markdown {
 	padding: 1.0rem;
 	line-height: 1.5;
@@ -298,8 +298,20 @@ html, body {
 	width: 10%;
 }
 
+.site-view-markdown .th-15 {
+	width: 15%;
+}
+
+.site-view-markdown .th-20 {
+	width: 20%;
+}
+
 .site-view-markdown .th-25 {
 	width: 25%;
+}
+
+.site-view-markdown .th-33 {
+	width: 33%;
 }
 
 .site-view-markdown .th-50 {
@@ -334,7 +346,6 @@ html, body {
 }
 
 .site-view-markdown blockquote {
-	font-style: italic;
 	padding: 0 0.5rem;
 	margin: 0.3rem 0;
 	border-left: 4px solid #AAAAAA;
@@ -382,113 +393,134 @@ html, body {
 	cursor: pointer;
 }
 
-.site-view-markdown details summary ~ * {
-	margin-left: 10px !important;
+.site-view-markdown details[open] summary ~ * {
+	margin-left: 10px;
 }
 
-/*
-hr {
-	display: block;
-	height: 2px;
-	border: 0;
-	border-top: 2px solid #AAAAAA;
-	margin: 1.0rem 0;
-}
-
-p {
-	padding: 0.3rem 0;
-}
-
-h1 {
-	padding: 0.3rem 0;
-	font-size: 1.4em;
-}
-
-h2 {
-	padding: 0.3rem 0;
-	font-size: 1.3em;
-}
-
-h3 {
-	padding: 0.2rem 0;
-	font-size: 1.2em;
-}
-
-h4 {
-	padding: 0.2rem 0;
-	font-size: 1.0em;
-}
-
-h5 {
-	padding: 0.2rem 0;
-	font-size: 0.9em;
-}
-
-h6 {
-	padding: 0.2rem 0;
-	font-size: 0.8em;
-}
-
-blockquote {
-	padding-left: 0.5rem;
-	border-left: 3px solid #AAAAAA;
-	color: #555555;
-}
-
-.anchor-link {
-	text-decoration: none;
-}
-
-/*
-code:not(pre code) {
-	border: 1px solid #AAAAAA;
-	background-color: #EEEEEE;
-	padding: 0.2rem 0.3rem;
-	font-size: 0.8rem;
-	hyphens: manual;
-}
-
-pre, .sourceCode {
-	overflow: auto;
-	border: 1px solid #AAAAAA;
-	background-color: #EEEEEE;
-	font-size: 0.8rem;
-	hyphens: manual;
+.site-view-markdown .markdown-alert {
+	padding: 0 0.5rem;
 	margin: 0.3rem 0;
+	border-left: 4px solid #D1D9E0;
 }
 
-.sourceCode pre, .sourceCode code, pre code {
-	border: none;
-	background: none;
-	overflow-wrap: normal;
+.site-view-markdown .markdown-alert .markdown-alert-title {
+	display: flex;
+	font-weight: 500;
+	align-items: center;
 }
 
-.sourceCode pre, pre {
-	padding: 0.3rem;
+.site-view-markdown .markdown-alert-note {
+	border-left-color: #0969DA;
 }
-*/
+
+.site-view-markdown .markdown-alert-note .markdown-alert-title {
+	color: #0969DA;
+}
+
+.site-view-markdown .markdown-alert-tip {
+	border-left-color: #238636;
+}
+
+.site-view-markdown .markdown-alert-tip .markdown-alert-title {
+	color: #238636;
+}
+
+.site-view-markdown .markdown-alert-important {
+	border-left-color: #8250DF;
+}
+
+.site-view-markdown .markdown-alert-important .markdown-alert-title {
+	color: #8250DF;
+}
+
+.site-view-markdown .markdown-alert-warning {
+	border-left-color: #BF8700;
+}
+
+.site-view-markdown .markdown-alert-warning .markdown-alert-title {
+	color: #BF8700;
+}
+
+.site-view-markdown .markdown-alert-caution {
+	border-left-color: #CF222E;
+}
+
+.site-view-markdown .markdown-alert-caution .markdown-alert-title {
+	color: #CF222E;
+}
+
+.site-view-markdown .markdown-alert-icon {
+	margin-right: 0.3rem;
+	fill: currentColor;
+}
+
+.site-view-markdown .video-details {
+	border: 1px solid #AAAAAA;
+}
+
+.site-view-markdown .video-summary {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.6rem;
+	list-style: none;
+}
+
+.site-view-markdown .video-icon {
+	fill: black;
+}
+
+.site-view-markdown .video-play {
+	fill: white;
+}
+
+.site-view-markdown kbd {
+	display: inline-block;
+	padding: 0.25rem;
+	font: 12px monospace;
+	line-height: 10px;
+	vertical-align: middle;
+	color: #333333;
+	background-color: #EEEEEE;
+	border: solid 1px #AAAAAA;
+	border-radius: 4px;
+	box-shadow: inset 0 -1px 0 #0D0D0DB3;
+	text-shadow: white 0 1px;
+}
+
+.site-view-markdown .red {
+	color: red;
+}
+
+.site-view-markdown .green {
+	color: green;
+}
+
+.site-view-markdown .blue {
+	color: blue;
+}
 
 /* Code Highlighting */
-code span.al { color: #FF0000; font-weight: bold; } /* Alert */
-code span.an { color: #60A0B0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.al { color: #FF0000; } /* Alert */
+code span.an { color: #60A0B0; } /* Annotation */
 code span.at { color: #7D9029; } /* Attribute */
 code span.bn { color: #40A070; } /* BaseN */
 code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.cf { color: #007020; } /* ControlFlow */
 code span.ch { color: #4070A0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60A0B0; font-style: italic; } /* Comment */
-code span.cv { color: #60A0B0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #BA2121; font-style: italic; } /* Documentation */
+code span.co { color: #60A0B0; } /* Comment */
+code span.cv { color: #60A0B0; } /* CommentVar */
+code span.do { color: #BA2121; } /* Documentation */
 code span.dt { color: #902000; } /* DataType */
 code span.dv { color: #40A070; } /* DecVal */
-code span.er { color: #FF0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
+code span.er { color: #FF0000; } /* Error */
+code span.ex { color: #08287E; } /* Extension */
 code span.fl { color: #40A070; } /* Float */
 code span.fu { color: #06287E; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60A0B0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.im { color: #008000; } /* Import */
+code span.in { color: #60A0B0; } /* Information */
+code span.kw { color: #007020; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
 code span.ot { color: #007020; } /* Other */
 code span.pp { color: #BC7A00; } /* Preprocessor */
@@ -497,4 +529,4 @@ code span.ss { color: #BB6688; } /* SpecialString */
 code span.st { color: #4070A0; } /* String */
 code span.va { color: #19177C; } /* Variable */
 code span.vs { color: #4070A0; } /* VerbatimString */
-code span.wa { color: #60A0B0; font-weight: bold; font-style: italic; } /* Warning */
+code span.wa { color: #60A0B0; } /* Warning */

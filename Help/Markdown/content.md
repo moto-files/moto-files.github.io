@@ -1,192 +1,1035 @@
-# Markdown Cheat Sheet
+# Markdown
 
-The pages on this site are written in [GitHub Flavored Markdown](//github.github.com/gfm/) (GFM) and converted to HTML using [Pandoc](//pandoc.org/) utility. This page provides a guide to the basic GFM syntax. Further details are available in GitHub's official [Basic Writing and Formatting Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) document. Hard-breaks are enabled for this configuration, each line break in Markdown will be rendered in the HTML page.
+Markdown is a lightweight markup language for creating formatted text using a plain-text editor. John Gruber created Markdown in 2004 as an easy-to-read and easy-to-write markup language. Nearly all Markdown applications, parsers, and generators support the basic syntax described in the original [Markdown design document](https://daringfireball.net/projects/markdown) by John Gruber.
 
+All pages on this site are written in GitHub Flavored Markdown (GFM) syntax, flavored with the Pandoc Markdown dialect, and converted to HTML using the Pandoc utility itself. This Markdown cheat sheet provides a quick overview of the most useful and frequently used Markdown syntax elements. Hard breaks, autolinks and HTML are enabled for this configuration; each line break in Markdown will be rendered in the HTML page, and written links will be autolinked. Markdown documents can use UTF-8 and Unicode, allowing you to embed various infographics, emoji, and even formulas on this website's pages.
 
+## Table of Contents
 
----
+- [01. Markup](#01-markup)
+- [02. Links](#02-links)
+- [03. Headings](#03-headings)
+- [04. Lists](#04-lists)
+- [05. Code Blocks](#05-code-blocks)
+- [06. Tables](#06-tables)
+- [07. Blockquotes](#07-blockquotes)
+- [08. Images](#08-images)
+- [09. Horizontal Lines](#09-horizontal-lines)
+- [10. Task Lists](#10-task-lists)
+- [11. Alerts](#11-alerts)
+- [12. Keyboard Buttons](#12-keyboard-buttons)
+- [13. Spoilers](#13-spoilers)
+- [14. Videos](#14-videos)
+- [15. HTML](#15-html)
 
-## 1. Bold, Italic, Strikethrough, Underline, Superscript, Subscript
+## 01. Markup
 
-You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in documents.
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Italic</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem *ipsum dolor* sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <em>ipsum dolor</em> sit amet</td>
+	</tr>
+	<tr>
+		<td>Bold</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem **ipsum dolor** sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <strong>ipsum dolor</strong> sit amet</td>
+	</tr>
+	<tr>
+		<td>Bold Italic</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem ***ipsum dolor*** sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <em><strong>ipsum dolor</strong></em> sit amet</td>
+	</tr>
+	<tr>
+		<td>Inline Code</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="in">`ipsum dolor`</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <span class="pandoc-code-inline"><code>ipsum dolor</code></span> sit amet</td>
+	</tr>
+	<tr>
+		<td>Strikethrough</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem ~~ipsum dolor~~ sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <del>ipsum dolor</del> sit amet</td>
+	</tr>
+	<tr>
+		<td>Highlight</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="dt">&lt;</span><span class="kw">mark</span><span class="dt">&gt;</span>ipsum dolor<span class="dt">&lt;/</span><span class="kw">mark</span><span class="dt">&gt;</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <mark>ipsum dolor</mark> sit amet</td>
+	</tr>
+	<tr>
+		<td>Superscript</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="dt">&lt;</span><span class="kw">sup</span><span class="dt">&gt;</span>ipsum dolor<span class="dt">&lt;/</span><span class="kw">sup</span><span class="dt">&gt;</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <sup>ipsum dolor</sup> sit amet</td>
+	</tr>
+	<tr>
+		<td>Subscript</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="dt">&lt;</span><span class="kw">sub</span><span class="dt">&gt;</span>ipsum dolor<span class="dt">&lt;/</span><span class="kw">sub</span><span class="dt">&gt;</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <sub>ipsum dolor</sub> sit amet</td>
+	</tr>
+	<tr>
+		<td>Underline</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="dt">&lt;</span><span class="kw">ins</span><span class="dt">&gt;</span>ipsum dolor<span class="dt">&lt;/</span><span class="kw">ins</span><span class="dt">&gt;</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <ins>ipsum dolor</ins> sit amet</td>
+	</tr>
+	<tr>
+		<td>Color</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> style</span><span class="op">=</span><span class="st">"color:red"</span><span class="dt">&gt;</span>ipsum dolor<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <span style="color:red">ipsum dolor</span> sit amet</td>
+	</tr>
+</tbody>
+</table>
 
-**Code:**
+[⬅ Skip to article content](#table-of-contents)
 
-```md
-**This is bold text**
-_This text is italicized_
-~~This was mistaken text~~
-**This text is _extremely_ important**
-***All this text is important***
-This is a <sup>superscript</sup> text
-This is a <sub>subscript</sub> text
-This is an <ins>underlined</ins> text
-```
+## 02. Links
 
-**Result:**
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>General Link</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="co">[</span><span class="ot">ipsum dolor</span><span class="co">](https://example.com)</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <a href="https://example.com">ipsum dolor</a> sit amet</td>
+	</tr>
+	<tr>
+		<td>Link with Title</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="co">[</span><span class="ot">ipsum dolor</span><span class="co">](https://example.com "ipsum dolor")</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <a href="https://example.com" title="ipsum dolor">ipsum dolor</a> sit amet</td>
+	</tr>
+	<tr>
+		<td>Hierarchical Link</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="co">[</span><span class="ot">ipsum dolor</span><span class="co">](../About)</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <a href="../About">ipsum dolor</a> sit amet</td>
+	</tr>
+	<tr>
+		<td>Anchor Link</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="co">[</span><span class="ot">ipsum dolor</span><span class="co">](#table-of-contents)</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <a href="#table-of-contents">ipsum dolor</a> sit amet</td>
+	</tr>
+	<tr>
+		<td>Italic Link</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="co">[</span><span class="ot">*ipsum dolor*</span><span class="co">](https://example.com)</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <a href="https://example.com"><em>ipsum dolor</em></a> sit amet</td>
+	</tr>
+	<tr>
+		<td>Bold Link</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="co">[</span><span class="ot">**ipsum dolor**</span><span class="co">](https://example.com)</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <a href="https://example.com"><strong>ipsum dolor</strong></a> sit amet</td>
+	</tr>
+	<tr>
+		<td>Bold Italic Link</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="co">[</span><span class="ot">***ipsum dolor***</span><span class="co">](https://example.com)</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <a href="https://example.com"><em><strong>ipsum dolor</strong></em></a> sit amet</td>
+	</tr>
+	<tr>
+		<td>Inline Code Link</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Lorem <span class="co">[</span><span class="ot">`ipsum dolor`</span><span class="co">](https://example.com)</span> sit amet</span></code></pre></div>
+</div></td>
+		<td>Lorem <a href="https://example.com"><span class="pandoc-code-inline"><code>ipsum dolor</code></span></a> sit amet</td>
+	</tr>
+	<tr>
+		<td>Link with Attributes</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://example.com"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"noopener"</span><span class="dt">&gt;</span>ipsum<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td>Lorem <a href="https://example.com" target="_blank" rel="noopener">ipsum dolor</a> sit amet</td>
+	</tr>
+</tbody>
+</table>
 
-**This is bold text**
-_This text is italicized_
-~~This was mistaken text~~
-**This text is _extremely_ important**
-***All this text is important***
-This is a <sup>superscript</sup> text
-This is a <sub>subscript</sub> text
-This is an <ins>underlined</ins> text
+[⬅ Skip to article content](#table-of-contents)
 
----
+## 03. Headings
 
-## 2. Inline code and Code blocks
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Heading Level 1</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="fu"># Heading Level 1</span></span></code></pre></div>
+</div></td>
+		<td><section id="heading-level-1" class="pandoc-header">
+<h1><a href="#heading-level-1" class="anchor-link" title="Heading Level 1">Heading Level 1</a></h1>
+</section></td>
+	</tr>
+	<tr>
+		<td>Heading Level 2</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="fu">## Heading Level 2</span></span></code></pre></div>
+</div></td>
+		<td><section id="heading-level-2" class="pandoc-header">
+<h2><a href="#heading-level-2" class="anchor-link" title="Heading Level 2">Heading Level 2</a></h2>
+</section></td>
+	</tr>
+	<tr>
+		<td>Heading Level 3</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="fu">### Heading Level 3</span></span></code></pre></div>
+</div></td>
+		<td><section id="heading-level-3" class="pandoc-header">
+<h3><a href="#heading-level-3" class="anchor-link" title="Heading Level 3">Heading Level 3</a></h3>
+</section></td>
+	</tr>
+	<tr>
+		<td>Heading Level 4</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="fu">#### Heading Level 4</span></span></code></pre></div>
+</div></td>
+		<td><section id="heading-level-4" class="pandoc-header">
+<h4><a href="#heading-level-4" class="anchor-link" title="Heading Level 4">Heading Level 4</a></h4>
+</section></td>
+	</tr>
+	<tr>
+		<td>Heading Level 5</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="fu">##### Heading Level 5</span></span></code></pre></div>
+</div></td>
+		<td><section id="heading-level-5" class="pandoc-header">
+<h5><a href="#heading-level-5" class="anchor-link" title="Heading Level 5">Heading Level 5</a></h5>
+</section></td>
+	</tr>
+	<tr>
+		<td>Heading Level 6</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="fu">###### Heading Level 6</span></span></code></pre></div>
+</div></td>
+		<td><section id="heading-level-6" class="pandoc-header">
+<h6><a href="#heading-level-6" class="anchor-link" title="Heading Level 6">Heading Level 6</a></h6>
+</section></td>
+	</tr>
+	<tr>
+		<td>Heading Level 1 (alternative)</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>Heading Level 1</span>
+<span class="fu">===============</span></code></pre></div>
+</div></td>
+		<td><section id="heading-level-1-1" class="pandoc-header">
+<h1><a href="#heading-level-1-1" class="anchor-link" title="Heading Level 1">Heading Level 1</a></h1>
+</section></td>
+	</tr>
+</tbody>
+</table>
 
-You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted. To format code or text into its own distinct block, use triple backticks. In addition, you can set the code language for proper highlighting next to triple backticks.
+[⬅ Skip to article content](#table-of-contents)
 
-**Code:**
+## 04. Lists
 
-```md
-Use `git status` to list all new or modified files that haven't yet been committed.
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Ordered List</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="ss">1. </span>First item</span>
+<span><span class="ss">2. </span>Second item</span>
+<span><span class="ss">3. </span>Third item</span>
+<span><span class="ss">4. </span>Fourth item</span></code></pre></div>
+</div></td>
+		<td><ol type="1">
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+<li>Fourth item</li>
+</ol></td>
+	</tr>
+	<tr>
+		<td>Unordered List</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="ss">- </span>First item</span>
+<span><span class="ss">- </span>Second item</span>
+<span><span class="ss">- </span>Third item</span>
+<span><span class="ss">- </span>Fourth item</span></code></pre></div>
+</div></td>
+		<td><ul>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+<li>Fourth item</li>
+</ul></td>
+	</tr>
+	<tr>
+		<td>Nested Lists</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="ss">1. </span>First item</span>
+<span><span class="ss">2. </span>Second item</span>
+<span><span class="ss">3. </span>Third item</span>
+<span><span class="ss">    - </span>Indented item</span>
+<span><span class="ss">        - </span>Indented item</span>
+<span><span class="ss">    1. </span>Indented item</span>
+<span><span class="ss">        1. </span>Indented item</span>
+<span><span class="ss">        2. </span>Indented item</span>
+<span><span class="ss">4. </span>Fourth item</span></code></pre></div>
+</div></td>
+		<td><ol type="1">
+<li>First item</li>
+<li>Second item</li>
+<li>Third item
+<ul>
+<li>Indented item
+<ul>
+<li>Indented item</li>
+</ul></li>
+</ul>
+<ol type="1">
+<li>Indented item
+<ol type="1">
+<li>Indented item</li>
+<li>Indented item</li>
+</ol></li>
+</ol></li>
+<li>Fourth item</li>
+</ol></td>
+	</tr>
+	<tr>
+		<td>List with Paragraphs</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="ss">1. </span>This is the first list item.</span>
+<span><span class="ss">2. </span>Here's the second list item.</span>
+<span>    </span>
+<span>    I need to add another paragraph.</span>
+<span>    And another one line.</span>
+<span>    </span>
+<span>    And another one paragraph.</span>
+<span>    </span>
+<span><span class="ss">3. </span>And here's the third list item.</span></code></pre></div>
+</div></td>
+		<td><ol type="1">
+<li><p>This is the first list item.</p></li>
+<li><p>Here's the second list item.</p>
+<p>I need to add another paragraph.<br>
+And another one line.</p>
+<p>And another one paragraph.</p></li>
+<li><p>And here's the third list item.</p></li>
+</ol></td>
+	</tr>
+</tbody>
+</table>
 
-​```
-git status
-git add
-git commit
-​```
+[⬅ Skip to article content](#table-of-contents)
 
-​```python
-if __name__ == '__main__':
-	sys.exit(main())
+## 05. Code Blocks
 
-​```
-```
-
-**Result:**
-
-Use `git status` to list all new or modified files that haven't yet been committed.
-
-```
-git status
-git add
-git commit
-```
-
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Code Block</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="pp">```</span>
+int main(int argc, char *argv[]) {
+    int result = 0;
+    return result;
+}
+<span class="pp">```</span></code></pre></div>
+</div></td>
+		<td><div class="pandoc-code-block">
+<pre><code>
+int main(int argc, char *argv[]) {
+    int result = 0;
+    return result;
+}
+</code>
+</pre>
+</div></td>
+	</tr>
+	<tr>
+		<td>Syntax Highlighting</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="pp">```java</span>
+public class HelloWorld {
+    public static void main(String[] a) {
+        System.out.println("Hello!");
+    }
+}
+<span class="pp">```</span></code></pre></div>
+</div></td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">
+<span><span class="kw">public</span> <span class="kw">class</span> HelloWorld <span class="op">{</span></span>
+<span>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> a<span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hello!"</span><span class="op">);</span></span>
+<span>    <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+</code>
+</pre></div>
+</div></td>
+	</tr>
+	<tr>
+		<td>Escaping Code Blocks</td>
+		<td><div class="pandoc-code-block">
+<pre><code><span class="pp">~~~markdown</span>
 ```python
 if __name__ == '__main__':
-	sys.exit(main())
-
+    sys.exit(main())
 ```
+<span class="pp">~~~</span></code></pre>
+</div></td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">
+<span><span class="in">```python</span></span>
+<span><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span>    sys.exit(main())</span>
+<span><span class="in">```</span></span>
+</code>
+</pre></div>
+</div></td>
+	</tr>
+</tbody>
+</table>
 
----
+[⬅ Skip to article content](#table-of-contents)
 
-## 3. Quoting
+## 06. Tables
 
-You can quote text with a `>` character, nested quotes are also supported.
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>General Table</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">
+<span><span class="pp">|</span> Left      <span class="pp">|</span> Center <span class="pp">|</span> Right     <span class="pp">|</span></span>
+<span><span class="pp">| ---------</span> <span class="pp">| ------</span> <span class="pp">| ---------</span> <span class="pp">|</span></span>
+<span><span class="pp">|</span> Header    <span class="pp">|</span> Title  <span class="pp">|</span> Header    <span class="pp">|</span></span>
+<span><span class="pp">|</span> Paragraph <span class="pp">|</span> Text   <span class="pp">|</span> Paragraph <span class="pp">|</span></span></code></pre></div>
+</div></td>
+		<td><table>
+<thead>
+<tr>
+<th>Left</th>
+<th>Center</th>
+<th>Right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Header</td>
+<td>Title</td>
+<td>Header</td>
+</tr>
+<tr>
+<td>Paragraph</td>
+<td>Text</td>
+<td>Paragraph</td>
+</tr>
+</tbody>
+</table></td>
+	</tr>
+<tr>
+		<td>Table with Alignment</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">
+<span><span class="pp">|</span> Left      <span class="pp">|</span> Center <span class="pp">|</span> Right     <span class="pp">|</span></span>
+<span><span class="pp">| :---</span>      <span class="pp">| :----:</span> <span class="pp">|      ---:</span> <span class="pp">|</span></span>
+<span><span class="pp">|</span> Header    <span class="pp">|</span> Title  <span class="pp">|</span> Header    <span class="pp">|</span></span>
+<span><span class="pp">|</span> Paragraph <span class="pp">|</span> Text   <span class="pp">|</span> Paragraph <span class="pp">|</span></span>
+</code>
+</pre></div>
+</div></td>
+		<td><table>
+<thead>
+<tr>
+<th style="text-align: left;">Left</th>
+<th style="text-align: center;">Center</th>
+<th style="text-align: right;">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Header</td>
+<td style="text-align: center;">Title</td>
+<td style="text-align: right;">Header</td>
+</tr>
+<tr>
+<td style="text-align: left;">Paragraph</td>
+<td style="text-align: center;">Text</td>
+<td style="text-align: right;">Paragraph</td>
+</tr>
+</tbody>
+</table></td>
+	</tr>
+</tbody>
+</table>
 
-**Code:**
+[⬅ Skip to article content](#table-of-contents)
 
-```
-> Text that is a quote
-> Text that is a quote
->
-> Text that is a quote
->
->> Text that is a quote
->> Text that is a quote
->> Text that is a quote
->>> Text that is a quote
->>> Text that is a quote
->
-> Text that is a quote
-```
+## 07. Blockquotes
 
-**Result:**
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>General Blockquote</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="at">&gt; Lorem ipsum dolor sit amet</span></span>
+<span><span class="at">&gt;</span></span>
+<span><span class="at">&gt; Lorem ipsum dolor sit amet</span></span></code></pre></div>
+</div></td>
+		<td><blockquote>
+<p>Lorem ipsum dolor sit amet</p>
+<p>Lorem ipsum dolor sit amet</p>
+</blockquote></td>
+	</tr>
+	<tr>
+		<td>Nested Blockquotes</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="at">&gt; Lorem ipsum dolor sit amet</span></span>
+<span><span class="at">&gt;</span></span>
+<span><span class="at">&gt;&gt; Lorem ipsum dolor sit amet</span></span></code></pre></div>
+</div></td>
+		<td><blockquote>
+<p>Lorem ipsum dolor sit amet</p>
+<blockquote>
+<p>Lorem ipsum dolor sit amet</p>
+</blockquote>
+</blockquote></td>
+	</tr>
+	<tr>
+		<td>Blockquote with Elements</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="at">&gt; Lorem ipsum dolor sit amet</span></span>
+<span><span class="at">&gt;</span></span>
+<span><span class="at">&gt; ```c</span></span>
+<span><span class="at">&gt; int main(int a, char *c[]) {</span></span>
+<span><span class="at">&gt;   return 0;</span></span>
+<span><span class="at">&gt; }</span></span>
+<span><span class="at">&gt; ```</span></span>
+<span><span class="at">&gt;</span></span>
+<span><span class="at">&gt; Lorem ipsum dolor sit amet</span></span></code></pre></div>
+</div></td>
+		<td><blockquote>
+<p>Lorem ipsum dolor sit amet</p>
+<div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span><span class="dt">int</span> main<span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>c<span class="op">[])</span> <span class="op">{</span></span>
+<span>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+<p>Lorem ipsum dolor sit amet</p>
+</blockquote></td>
+	</tr>
+</tbody>
+</table>
 
-> Text that is a quote
-> Text that is a quote
->
-> Text that is a quote
->
->> Text that is a quote
->> Text that is a quote
->> Text that is a quote
->>> Text that is a quote
->>> Text that is a quote
->
-> Text that is a quote
+[⬅ Skip to article content](#table-of-contents)
 
----
+## 08. Images
 
-## 1. Horizontal Line
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>General Image</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="al">![Old Workstation PC](/favicon.png)</span></span></code></pre></div>
+</div></td>
+		<td><img src="/favicon.png" alt="Old Workstation PC"></td>
+	</tr>
+	<tr>
+		<td>Image with Title</td>
+				<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="al">![Old Workstation PC](/favicon.png "Old Workstation PC")</span></span></code></pre></div>
+</div></td>
+		<td><img src="/favicon.png" title="Old Workstation PC" alt="Old Workstation PC"></td>
+	</tr>
+	<tr>
+		<td>Clickable Image</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="co">[</span><span class="al">![Old Workstation PC](/favicon.png)</span><span class="co">](/favicon.png)</span></span></code></pre></div>
+</div></td>
+		<td><a href="/favicon.png"><img src="/favicon.png" alt="Old Workstation PC"></a></td>
+	</tr>
+	<tr>
+		<td>Image with Attributes</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/favicon.png"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"32"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"32"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Old PC"</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><img src="/favicon.png" width="32" height="32" alt="Old Workstation PC"></td>
+	</tr>
+</tbody>
+</table>
 
-A simple horizontal line is convenient for separating sections of information.
+[⬅ Skip to article content](#table-of-contents)
 
-**Code:**
+## 09. Horizontal Lines
 
-```md
----
-```
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Horizontal Rule</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="pp">---</span></span></code></pre></div>
+</div></td>
+		<td><hr></td>
+	</tr>
+	<tr>
+		<td>Color Rule</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">hr</span><span class="ot"> style</span><span class="op">=</span><span class="st">"background-color:blue"</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><hr style="background-color:blue"></td>
+	</tr>
+</tbody>
+</table>
 
-**Result:**
+[⬅ Skip to article content](#table-of-contents)
 
----
+## 10. Task Lists
 
-## 2. Headings
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>To-do List</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="ss">- </span><span class="va">[x]</span> Write the press release</span>
+<span><span class="ss">- </span><span class="va">[ ]</span> Update the website</span>
+<span><span class="ss">- </span><span class="va">[ ]</span> Contact the media</span></code></pre></div>
+</div></td>
+		<td><ul class="task-list">
+<li><label><input type="checkbox" checked="">Write the press
+release</label></li>
+<li><label><input type="checkbox">Update the website</label></li>
+<li><label><input type="checkbox">Contact the media</label></li>
+</ul></td>
+	</tr>
+	<tr>
+		<td>To-do List Emoji</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>✅ Done</span>
+<span>🟩 Planned</span>
+<span>🟨 In Progress</span>
+<span>🟥 Failed</span></code></pre></div>
+</div></td>
+		<td><p>✅ Done<br>
+🟩 Planned<br>
+🟨 In Progress<br>
+🟥 Failed</p></td>
+	</tr>
+</tbody>
+</table>
 
-To create a heading, add one to four `#` symbols before your heading text. The number of `#` you use will determine the hierarchy level and typeface size of the heading.
+[⬅ Skip to article content](#table-of-contents)
 
-**Code:**
+## 11. Alerts
 
-```md
-# A first-level heading
-## A second-level heading
-### A third-level heading
-#### A fourth-level heading
-asd
-asd
-asd
-asd
-```
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Note</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="at">&gt; </span><span class="co">[</span><span class="ot">!NOTE</span><span class="co">]</span></span>
+<span><span class="at">&gt; Useful information that users should know.</span></span></code></pre></div>
+</div></td>
+		<td><div class="markdown-alert markdown-alert-note">
+<p class="markdown-alert-title"><svg class="markdown-alert-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Useful information that users should know.</p>
+</div></td>
+	</tr>
+	<tr>
+		<td>Tip</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="at">&gt; </span><span class="co">[</span><span class="ot">!TIP</span><span class="co">]</span></span>
+<span><span class="at">&gt; Helpful advice for doing things better.</span></span></code></pre></div>
+</div></td>
+		<td><div class="markdown-alert markdown-alert-tip">
+<p class="markdown-alert-title"><svg class="markdown-alert-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>Helpful advice for doing things better.</p>
+</div></td>
+	</tr>
+	<tr>
+		<td>Important</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="at">&gt; </span><span class="co">[</span><span class="ot">!IMPORTANT</span><span class="co">]</span></span>
+<span><span class="at">&gt; Key information users need to know.</span></span></code></pre></div>
+</div></td>
+		<td><div class="markdown-alert markdown-alert-important">
+<p class="markdown-alert-title"><svg class="markdown-alert-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>Key information users need to know.</p>
+</div></td>
+	</tr>
+	<tr>
+		<td>Warning</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="at">&gt; </span><span class="co">[</span><span class="ot">!WARNING</span><span class="co">]</span></span>
+<span><span class="at">&gt; Urgent info that needs immediate attention!</span></span></code></pre></div>
+</div></td>
+		<td><div class="markdown-alert markdown-alert-warning">
+<p class="markdown-alert-title"><svg class="markdown-alert-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p>Urgent info that needs immediate attention!</p>
+</div></td>
+	</tr>
+	<tr>
+		<td>Caution</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="at">&gt; </span><span class="co">[</span><span class="ot">!CAUTION</span><span class="co">]</span></span>
+<span><span class="at">&gt; Advises about risks or negative outcomes!</span></span></code></pre></div>
+</div></td>
+		<td><div class="markdown-alert markdown-alert-caution">
+<p class="markdown-alert-title"><svg class="markdown-alert-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Caution</p>
+<p>Advises about risks or negative outcomes!</p>
+</div></td>
+	</tr>
+</tbody>
+</table>
 
-**Result:**
+[⬅ Skip to article content](#table-of-contents)
 
-# A first-level heading
-## A second-level heading
-### A third-level heading
-#### A fourth-level heading
+## 12. Keyboard Buttons
 
----
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Separate Keys</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>Ctrl<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>Alt<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>Delete<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Delete</kbd></td>
+	</tr>
+	<tr>
+		<td>Nested Keys</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>Ctrl + Alt + Delete<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><kbd>Ctrl + Alt + Delete</kbd></td>
+	</tr>
+	<tr>
+		<td>Color Keys</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>*<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>#<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="ot"> class</span><span class="op">=</span><span class="st">"red"</span><span class="dt">&gt;</span>Power / END 📞<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span></span>
+<span></span>
+<span><span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>*<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>#<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="ot"> class</span><span class="op">=</span><span class="st">"green"</span><span class="dt">&gt;</span>SEND 📞<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><p><kbd>*</kbd> + <kbd>#</kbd> + <kbd class="red">Power / END 📞</kbd></p><p><kbd>*</kbd> + <kbd>#</kbd> + <kbd class="green">SEND 📞</kbd></p></td>
+	</tr></tbody>
+</table>
 
-`#0969DA`
+[⬅ Skip to article content](#table-of-contents)
 
-1. First list item
-   - First nested list item
-     - Second nested list item
+## 13. Spoilers
 
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Open Collapsed Section</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">details</span><span class="ot"> open</span><span class="dt">&gt;</span></span>
+<span><span class="dt">&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>Tips for <span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>collapsed<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span> sections<span class="dt">&lt;/</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
+<span></span>
+<span><span class="fu">### You can add a header</span></span>
+<span></span>
+<span>You can add text within a collapsed section.</span>
+<span></span>
+<span><span class="in">~~~ruby</span></span>
+<span><span class="fu">puts</span> <span class="st">"Hello World"</span></span>
+<span><span class="in">~~~</span></span>
+<span></span>
+<span>You can add an image or a code block, too.</span>
+<span><span class="dt">&lt;/</span><span class="kw">details</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><details open="">
+<summary>Tips for <strong>collapsed</strong> sections</summary>
 
-- [x] #739
-- [ ] https://github.com/octo-org/octo-repo/issues/740
-- [ ] Add delight to the experience when all tasks are complete :tada:
+<section id="you-can-add-a-header" class="pandoc-header">
+<h3><a href="#you-can-add-a-header" class="anchor-link" title="You can add a header">You can add a header</a></h3>
+</section>
+<p>You can add text within a collapsed section.</p>
+<div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span><span class="fu">puts</span> <span class="st">"Hello World"</span></span></code></pre></div>
+</div>
+<p>You can add an image or a code block, too.</p>
+</details></td>
+	</tr>
+	<tr>
+		<td>Closed Collapsed Section</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">details</span><span class="dt">&gt;</span></span><span><span class="dt">&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>Collapsed section<span class="dt">&lt;/</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
+<span></span>
+<span>Lorem **ipsum dolor** sit amet</span>
+<span><span class="dt">&lt;/</span><span class="kw">details</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><details>
+<summary>Collapsed section</summary>
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
+<p>Lorem <strong>ipsum dolor</strong> sit amet</p>
+</details></td>
+	</tr>
+</tbody>
+</table>
 
-> [!TIP]
-> Helpful advice for doing things better or more easily.
+[⬅ Skip to article content](#table-of-contents)
 
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
+## 14. Videos
 
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th class="th-33">Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Markdown</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="al">![Doom on Motorola E770v](Moto_E770v_Doom_L.mp4 "Video by diokhann")</span></span></code></pre></div>
+</div><br><div class="markdown-alert markdown-alert-important">
+<p class="markdown-alert-title"><svg class="markdown-alert-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>Please note that the video's viewbox will be the same size as its resolution.</p>
+</div></td>
+		<td><video src="Moto_E770v_Doom_L.mp4" title="Video by diokhann" controls=""><a href="Moto_E770v_Doom_L.mp4">Doom on Motorola
+E770v</a></video></td>
+	</tr>
+	<tr>
+		<td>HTML</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">video</span><span class="ot"> width</span><span class="op">=</span><span class="st">"320"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"180"</span><span class="ot"> controls preload</span><span class="op">=</span><span class="st">"metadata"</span><span class="dt">&gt;</span></span>
+<span>    <span class="dt">&lt;</span><span class="kw">source</span><span class="ot"> src</span><span class="op">=</span><span class="st">"Moto_E770v_Doom_H.mp4"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"video/mp4"</span><span class="dt">&gt;</span></span>
+<span>    Your web browser does not support the video tag.</span>
+<span><span class="dt">&lt;/</span><span class="kw">video</span><span class="dt">&gt;</span></span></code></pre></div>
+</div><br><div class="markdown-alert markdown-alert-tip">
+<p class="markdown-alert-title"><svg class="markdown-alert-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>The video size can be set within the <span class="pandoc-code-inline"><code>&lt;video&gt;</code></span> HTML tag's
+attributes.</p>
+</div></td>
+		<td><video width="320" height="180" controls preload="metadata">
+	<source src="Moto_E770v_Doom_H.mp4" type="video/mp4">
+	Your web browser does not support the video tag.
+</video></td>
+	</tr>
+	<tr>
+		<td>GitHub Like</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">details</span><span class="ot"> open</span><span class="op">=</span><span class="st">""</span><span class="ot"> class</span><span class="op">=</span><span class="st">"video-details"</span><span class="dt">&gt;</span></span>
+<span><span class="dt">&lt;</span><span class="kw">summary</span><span class="ot"> class</span><span class="op">=</span><span class="st">"video-summary"</span><span class="dt">&gt;</span></span>
+<span>    <span class="dt">&lt;</span><span class="kw">svg</span><span class="ot"> viewBox</span><span class="op">=</span><span class="st">"0 0 24 16"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"16"</span><span class="dt">&gt;</span></span>
+<span>        <span class="dt">&lt;</span><span class="kw">rect</span><span class="ot"> class</span><span class="op">=</span><span class="st">"video-icon"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"16"</span><span class="ot"> rx</span><span class="op">=</span><span class="st">"3"</span><span class="dt">/&gt;</span></span>
+<span>        <span class="dt">&lt;</span><span class="kw">polygon</span><span class="ot"> class</span><span class="op">=</span><span class="st">"video-play"</span><span class="ot"> points</span><span class="op">=</span><span class="st">"9,5 9,11 16,8"</span><span class="dt">/&gt;</span></span>
+<span>    <span class="dt">&lt;/</span><span class="kw">svg</span><span class="dt">&gt;</span></span>
+<span>    <span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Moto_E770v_Doom_H.mp4<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span>    <span class="dt">&lt;</span><span class="kw">svg</span><span class="ot"> viewBox</span><span class="op">=</span><span class="st">"0 0 8 4"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"8"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"4"</span><span class="dt">&gt;</span></span>
+<span>        <span class="dt">&lt;</span><span class="kw">path</span><span class="ot"> fill</span><span class="op">=</span><span class="st">"currentColor"</span><span class="ot"> d</span><span class="op">=</span><span class="st">"M0 0 L8 0 L4 4 Z"</span><span class="dt">&gt;&lt;/</span><span class="kw">path</span><span class="dt">&gt;</span></span>
+<span>    <span class="dt">&lt;/</span><span class="kw">svg</span><span class="dt">&gt;</span></span>
+<span><span class="dt">&lt;/</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
+<span></span>
+<span><span class="dt">&lt;</span><span class="kw">video</span><span class="ot"> width</span><span class="op">=</span><span class="st">"320"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"180"</span><span class="ot"> controls preload</span><span class="op">=</span><span class="st">"metadata"</span><span class="dt">&gt;</span></span>
+<span>    <span class="dt">&lt;</span><span class="kw">source</span><span class="ot"> src</span><span class="op">=</span><span class="st">"Moto_E770v_Doom_H.mp4"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"video/mp4"</span><span class="dt">&gt;</span></span>
+<span>    Your web browser does not support the video tag.</span>
+<span><span class="dt">&lt;/</span><span class="kw">video</span><span class="dt">&gt;</span></span>
+<span><span class="dt">&lt;/</span><span class="kw">details</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><details open="" class="video-details">
+<summary class="video-summary">
+	<svg viewBox="0 0 24 16" width="24" height="16">
+		<rect class="video-icon" width="24" height="16" rx="3"/>
+		<polygon class="video-play" points="9,5 9,11 16,8"/>
+	</svg>
+	<span>Moto_E770v_Doom_H.mp4</span>
+	<svg viewBox="0 0 8 4" width="8" height="4">
+		<path fill="currentColor" d="M0 0 L8 0 L4 4 Z"></path>
+	</svg>
+</summary>
 
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+<video width="320" height="180" controls preload="metadata">
+	<source src="Moto_E770v_Doom_H.mp4" type="video/mp4">
+	Your web browser does not support the video tag.
+</video>
+</details></td>
+	</tr>
+</tbody>
+</table>
 
-<details>
-  <summary>Spoiler warning</summary>
-  
-  Spoiler text. Note that it's important to have a space after the summary tag. You should be able to write any markdown you want inside the `<details>` tag... just make sure you close `<details>` afterward.
-  
-  ```javascript
-  console.log("I'm a code block!");
-  ```
-  
-</details>
+[⬅ Skip to article content](#table-of-contents)
+
+## 15. HTML
+
+<table>
+<thead>
+	<tr>
+		<th class="th-15">Description</th>
+		<th>Markdown / HTML</th>
+		<th>Rendered</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Blue</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"border:solid 1px black; background-color:#6699CC; width:32px; height:32px;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><div style="border:solid 1px black; background-color:#6699CC; width:32px; height:32px;"></div></td>
+	</tr>
+	<tr>
+		<td>Gray</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"border:solid 1px black; background-color:#B5B8B1; width:32px; height:32px;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><div style="border:solid 1px black; background-color:#B5B8B1; width:32px; height:32px;"></div></td>
+	</tr>
+	<tr>
+		<td>Green</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"border:solid 1px black; background-color:#4CBB17; width:32px; height:32px;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><div style="border:solid 1px black; background-color:#4CBB17; width:32px; height:32px;"></div></td>
+	</tr>
+	<tr>
+		<td>Orange</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"border:solid 1px black; background-color:#FF7E00; width:32px; height:32px;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><div style="border:solid 1px black; background-color:#FF7E00; width:32px; height:32px;"></div></td>
+	</tr>
+	<tr>
+		<td>Light</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"border:solid 1px black; background-color:#B0C4DE; width:32px; height:32px;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><div style="border:solid 1px black; background-color:#B0C4DE; width:32px; height:32px;"></div></td>
+	</tr>
+	<tr>
+		<td>Yellow</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"border:solid 1px black; background-color:#FFFF00; width:32px; height:32px;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><div style="border:solid 1px black; background-color:#FFFF00; width:32px; height:32px;"></div></td>
+	</tr>
+	<tr>
+		<td>Solarized</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"border:solid 1px black; background-color:#C1B58D; width:32px; height:32px;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><div style="border:solid 1px black; background-color:#C1B58D; width:32px; height:32px;"></div></td>
+	</tr>
+	<tr>
+		<td>Dark</td>
+		<td><div class="pandoc-code-block">
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"border:solid 1px black; background-color:#696969; width:32px; height:32px;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+</div></td>
+		<td><div style="border:solid 1px black; background-color:#696969; width:32px; height:32px;"></div></td>
+	</tr>
+</tbody>
+</table>
+
+[⬅ Skip to article content](#table-of-contents)
+
+This document may not cover every edge case of using Pandoc Markdown, GitHub Flavored Markdown, and HTML. If you need more information about any of these topics, please search for it online.
