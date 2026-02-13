@@ -626,9 +626,9 @@ if __name__ == '__main__':
 	<tr>
 		<td>Image with Attributes</td>
 		<td><div class="pandoc-code-block">
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/favicon.png"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"32"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"32"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Old PC"</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/favicon.svg"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"48"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"48"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Old PC"</span><span class="dt">&gt;</span></span></code></pre></div>
 </div></td>
-		<td><img src="/favicon.png" width="32" height="32" alt="Old Workstation PC"></td>
+		<td><img src="/favicon.svg" width="48" height="48" alt="Old Workstation PC"></td>
 	</tr>
 </tbody>
 </table>
@@ -696,12 +696,14 @@ release</label></li>
 <div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span>✅ Done</span>
 <span>🟩 Planned</span>
 <span>🟨 In Progress</span>
-<span>🟥 Failed</span></code></pre></div>
+<span>🟥 Failed</span>
+<span>🟦 Out of Interest</span></code></pre></div>
 </div></td>
 		<td><p>✅ Done<br>
 🟩 Planned<br>
 🟨 In Progress<br>
-🟥 Failed</p></td>
+🟥 Failed<br>
+🟦 Out of Interest</p></td>
 	</tr>
 </tbody>
 </table>
@@ -807,11 +809,11 @@ release</label></li>
 	<tr>
 		<td>Color Keys</td>
 		<td><div class="pandoc-code-block">
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>*<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>#<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="ot"> class</span><span class="op">=</span><span class="st">"red"</span><span class="dt">&gt;</span>Power / END 📞<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span></span>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span><span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>*<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>#<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="ot"> class</span><span class="op">=</span><span class="st">"red"</span><span class="dt">&gt;</span>Power / END<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span></span>
 <span></span>
-<span><span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>*<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>#<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="ot"> class</span><span class="op">=</span><span class="st">"green"</span><span class="dt">&gt;</span>SEND 📞<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span></span></code></pre></div>
+<span><span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>*<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="dt">&gt;</span>#<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span> + <span class="dt">&lt;</span><span class="kw">kbd</span><span class="ot"> class</span><span class="op">=</span><span class="st">"green"</span><span class="dt">&gt;</span>SEND<span class="dt">&lt;/</span><span class="kw">kbd</span><span class="dt">&gt;</span></span></code></pre></div>
 </div></td>
-		<td><p><kbd>*</kbd> + <kbd>#</kbd> + <kbd class="red">Power / END 📞</kbd></p><p><kbd>*</kbd> + <kbd>#</kbd> + <kbd class="green">SEND 📞</kbd></p></td>
+		<td><p><kbd>*</kbd> + <kbd>#</kbd> + <kbd class="red">Power / END</kbd></p><p><kbd>*</kbd> + <kbd>#</kbd> + <kbd class="green">SEND</kbd></p></td>
 	</tr></tbody>
 </table>
 
