@@ -1,6 +1,6 @@
-/* Site */
 :root {
-	--max-site-width: 87.5rem; /* 1400px */
+	--min-site-width: 75rem; /* 1200px */
+	--max-site-width: 120rem; /* 1920px */
 	--base-fg-color: black;
 	--base-bg-color: #CCCCCC;
 	--base-fg-light: white;
@@ -14,9 +14,10 @@
 	--border-huge: 3px solid #AAAAAA;
 	--border-huge-transparent: 3px solid transparent;
 	--gradient-light: linear-gradient(#EEEEEE, #E6E6E6);
+	--gradient-menu: linear-gradient(#1177AA, #0E5478);
 	--shadow-light: white 0 1px;
 	--shadow-dark: black 1px 1px;
-	--gradient-menu: linear-gradient(#1177AA, #0E5478);
+	--shadow-logo: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
 }
 
 * {
@@ -33,7 +34,7 @@ body {
 	font-family: sans-serif;
 	color: var(--base-fg-color);
 	background-color: var(--base-bg-color);
-	font-size: 1rem;
+	font-size: 1.0rem;
 }
 
 html, body {
@@ -59,9 +60,9 @@ html, body {
 }
 
 .site-header-logo {
-	width: 48px;
-	height: 48px;
-	filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
+	width: 3.0rem;
+	height: 3.0rem;
+	filter: var(--shadow-logo);
 	vertical-align: bottom;
 }
 
@@ -80,7 +81,9 @@ html, body {
 .site-sister-links {
 	display: flex;
 	align-items: center;
-	font-size: 0.8rem;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+	font-size: 0.8125rem;
+	line-height: 1.125rem;
 	font-weight: bold;
 	border-top: var(--border);
 	border-bottom: var(--border);
@@ -89,7 +92,7 @@ html, body {
 }
 
 .site-sister-links a {
-	padding: 0.2rem 0.5rem;
+	padding: 0.0625rem 0.4375rem;
 	text-decoration: none;
 	border-right: var(--border);
 	color: var(--fg-color);
@@ -222,7 +225,6 @@ html, body {
 
 .site-footer {
 	overflow: hidden;
-	clear: both;
 	border-top: var(--border);
 	padding: 0.4rem;
 	color: var(--fg-color);
